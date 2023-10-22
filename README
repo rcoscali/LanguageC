@@ -1,0 +1,10 @@
+# building with cmake
+mkdir build
+cd build
+cmake -G "Ninja Multi-Config" ..
+ninja -f build-Debug.ninja
+ninja -f build-Release.ninja
+
+# building with Makefile
+make clean all
+
