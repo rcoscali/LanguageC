@@ -1,0 +1,1098 @@
+Le langage C
+EFREI – Année 2023-2024
+
+Rémi COHEN SCALI
+Sommaire
+Les bases de la programmation en C
+	historique…………………………………	7
+	compilation………………………………	8
+LES ELEMENTS DU LANGAGE C
+	éléments du langage C…………….	25
+	identificateurs…………………………	26
+	mots clefs………………………………	29
+	commentaires…………………………	31
+STRUCTURE D’UN PROGRAMME C
+	structure d’un programme C………	33
+LES TYPES PREDEFINIS
+	les types prédéfinis……………………	39
+	le type caractère……………………..	42
+	les types entiers………………………..	46
+	les types flottants……………………...	52
+LES CONSTANTES
+	les constantes………………………….	54
+	les constantes entières……………….	55
+	les constantes réelles…………………	58
+	les constantes caractères…………..	60
+	constantes chaînes de caractères..	62
+	
+Sommaire
+Les OPERATEURS
+	les opérateurs..…………………………….....	63
+	l’affectation…………………………………...	64
+	les opérateurs arithmétiques………...........	66
+	les opérateurs relationnels………………….	69
+	les opérateurs logiques booléens…………	71
+	Les opérateurs logiques bit à bit…………..	73
+	opérateurs d’affectation composée…….	76
+	les opérateurs d’incrémentation et
+	de décrémentation.....………………...........	77
+	l’opérateur virgule…………………………....	78
+	L’opérateur conditionnel ternaire………...	80
+	L’opérateur de conversion de type……...	81
+	L’opérateur adresse………………………....	82
+	Règles de priorité des opérateurs………...	83
+Sommaire
+Les INSTRUCTIONS DE BRANCHEMENTS CONDITIONNELS
+	les instructions de branchements 	conditionnels..…………………………….....	87
+	branchement conditionnel: if/else.……...	88
+	branchement multiple : switch…………...	90
+LES BOUCLES
+	les boucles……….........................................	92
+	boucle while ………………………………….	93
+	boucle do / while ……………………………	94
+	boucle for …………………………………….	95
+LES INSTRUCTIONS DE BRANCHEMENTS NON CONDITIONNEL
+	branchements non conditionnel………………	98
+	branchements non conditionnel break…….	99
+	branchements non conditionnel continue…	100
+	branchements non conditionnel goto………	101
+LES FONCTIONS D’ENTREES-SORTIES CLASSIQUES
+	les fonctions d’entrées-sorties classiques…..	103	
+	la fonction d’écriture printf …………………...	104
+	la fonction de saisie scanf ………...................	108
+	Impression et lecture de caractères ………..	111
+Sommaire
+	convention d’écriture d’un programme C....	115
+LES TYPES COMPOSES
+	types composés………….…….........................	116
+	les tableaux………………………….…………...	118
+	les structures………...........................................	125
+	les champs de bits ………………………………	130
+	les unions ………………………………………….	133
+	les énumérations…………………………………	137
+	définition de type avec typedef……………..	139
+LES POINTEURS
+	les pointeurs………………………………………	141
+	adresse et valeur d’un objet ………………….	142
+	notion de pointeur ………………………………	147
+	arythmétique des pointeurs …………………..	157	
+	 allocation dynamique …………………...........	
+	allocation alloca………....................................	
+	 ………..	
+Les bases de la programmation en C
+Historique
+Compilation
+Le C est un langage compilé  par opposition aux langages interprétés.
+Le programme C est décrit par un ou plusieurs fichiers texte, appelé fichier source.
+Pour être exécutable par le micro-processeur, il doit être traduit dans un langage compréhensible par la machine => « langage machine »
+Cette opération est réalisée par un programme appelé compilateur
+N.B.: Denis Ritchier et Ken Thompson ont donc créé le langage C et le compilateur associé!!
+
+Compilation
+Compilation se déroule en quatre grandes phases:
+Le pré-processing
+La compilation
+L’assemblage
+L’édition de liens
+Compilation
+Le pré-processing:
+Opération purement textuelle
+Possibilité de définir des constantes
+Possibilité de définir des macros paramétriques
+Opérations possible sur les paramètres des macros
+Evaluation d’expression
+Utilisation de variables d’environnement
+Contrôle de la compilation (erreurs, warning, messages)
+Inclusion d’autres fichiers
+Le résultat est un fichier source (unité de compilation)
+Compilation
+La compilation consiste à transformer l’unité de compilation générée par le pre-processeur en une suite d’instructions du micro-processeur (langage assembleur)
+Les instructions consistent en un mnémonique (opération élémentaire, mode d’adressage et/ou d’indexation, manipulation des flags des registres de status), des opérandes et optionnellement une destination (registre, pile, mémoire)
+L’assembleur est encore (avec un peu d’entrainement) lisible par un humain
+Compilation
+L’assemblage est l’opération qui consiste à traduire le langage assembleur généré par la compilation en une suite de valeur hexadécimale ou binaire qui représente les opérations à exécuter par le micro-processeur.
+Le résultat est un « fichier objet »
+Une unité de compilation => un fichier objet
+Compilation
+L’édition de liens consiste à lier ensemble 
+toutes les unité de compilations (fichiers .o)
+des librairies (archives fichiers .a)
+des bouts de codes assembleurs pour le démarrage et l’arrêt du programmes (crt0.o)
+Pour obtenir un fichier exécutable unique (le programme)
+Compilation
+Fichiers sources (.c) et fichiers d’entêtes (.h)
+Fichiers pré-compilés (.i)
+Fichiers assembleur (.s)
+Fichiers objets (.o)
+Fichiers libraries (.a): ce sont des archives de plusieurs fichiers objets (.o)
+Fichier programme lié, linked en anglais (.out)
+Compilation
+Exemple de fichier source .c
+int 
+main()
+{
+}
+Compilation
+Exemple de pré-processing
+
+$ gcc –E myfirstcode.c
+# 0 "myfirstcode.c"
+# 0 "<built-in>"
+# 0 "<command-line>"
+# 1 "myfirstcode.c"
+int
+main()
+{
+}
+$ 
+Compilation
+Exemple d’assembleur
+
+$ gcc –S myfirstcode.c
+$ cat myfirstcode.s
+ .file   "myfirstcode.c"
+        .text
+        .def    __main; .scl    2;      .type   32;     .endef
+        .globl  main
+        .def    main;   .scl    2;      .type   32;     .endef
+        .seh_proc       main
+main:
+        pushq   %rbp
+        .seh_pushreg    %rbp
+        movq    %rsp, %rbp
+        .seh_setframe   %rbp, 0
+        subq    $32, %rsp
+        .seh_stackalloc 32
+        .seh_endprologue
+        call    __main
+        movl    $0, %eax
+        addq    $32, %rsp
+        popq    %rbp
+        ret
+        .seh_endproc
+        .ident  "GCC: (MinGW-W64 x86_64-msvcrt-posix-seh, built by Brecht Sanders) 12.2.0" 
+$ 
+Compilation
+Exemple de fichier objet
+
+$ gcc –c myfirstcode.c –o myfirstcode.o
+
+Sur Linux (et les unix like en général) le fichier .o est un fichier ELF
+Executable and Linkable Format
+Sur windows, le fichier .o est du COFF
+Common Object File Format
+Compilation
+Exemple de fichier librarie (.a)
+Une librarie mathématique existe: libm.a
+
+$ ar t ~/lib/libatomic.a
+gload.o
+gstore.o
+gcas.o
+gexch.o
+…
+fand_16_.o
+fior_16_.o
+fxor_16_.o
+fnand_16_.o
+tas_16_.o
+$ 
+
+Ar est la commande de gestion d’archive
+Un fichier .a contient une collection de .o
+
+Compilation
+Exemple de programme (a.out)
+
+$ gcc myfirstcode.c
+$ ./a.out
+$
+
+Compilation
+Exemple de programme (a.out) en mode ‘verbose’
+$ gcc –v myfirstcode.c
+Using built-in specs.
+COLLECT_GCC=C:\Users\a047461\bin\gcc.exe
+COLLECT_LTO_WRAPPER=c:/users/a047461/bin/../libexec/gcc/x86_64-w64-mingw32/12.2.0/lto-wrapper.exe
+OFFLOAD_TARGET_NAMES=nvptx-none
+Target: x86_64-w64-mingw32
+Configured with: ../configure --prefix=/r/winlibs64_stage/17520.gcc/inst_gcc-12.2.0/share/gcc --build=x86_64-w64-mingw32 --host=x86_64-w64-mingw32 --enable-offload-targets=nvptx-none --with-pkgversion='MinGW-W64 x86_64-msvcrt-posix-seh, built by Brecht Sanders' --with-tune=generic --enable-checking=release --enable-threads=posix --disable-sjlj-exceptions --disable-libunwind-exceptions --disable-serial-configure --disable-bootstrap --enable-host-shared --enable-plugin --disable-default-ssp --disable-rpath --disable-libstdcxx-debug --disable-version-specific-runtime-libs --with-stabs --disable-symvers --enable-languages=c,c++,fortran,lto,objc,obj-c++,jit --disable-gold --disable-nls --disable-stage1-checking --disable-win32-registry --disable-multilib --enable-ld --enable-libquadmath --enable-libada --enable-libssp --enable-libstdcxx --enable-lto --enable-fully-dynamic-string --enable-libgomp --enable-graphite --enable-mingw-wildcard --enable-libstdcxx-time --disable-libstdcxx-pch --with-mpc=/d/Prog/winlibs64_stage/custombuilt --with-mpfr=/d/Prog/winlibs64_stage/custombuilt --with-gmp=/d/Prog/winlibs64_stage/custombuilt --with-isl=/d/Prog/winlibs64_stage/custombuilt --enable-libstdcxx-backtrace --enable-install-libiberty --enable-__cxa_atexit --without-included-gettext --with-diagnostics-color=auto --enable-clocale=generic --with-libiconv --with-system-zlib --with-build-sysroot=/r/winlibs64_stage/17520.gcc/gcc-12.2.0/build_mingw/mingw-w64 CFLAGS='-I/d/Prog/winlibs64_stage/custombuilt/include/libdl-win32 -D__USE_MINGW_ACCESS' CXXFLAGS=-D__USE_MINGW_ACCESS LDFLAGS='-Wl,--disable-nxcompat -Wl,--disable-high-entropy-va -Wl,--disable-dynamicbase'
+Thread model: posix
+Supported LTO compression algorithms: zlib zstd
+gcc version 12.2.0 (MinGW-W64 x86_64-msvcrt-posix-seh, built by Brecht Sanders)
+COLLECT_GCC_OPTIONS='-v' '-mtune=generic' '-march=x86-64' '-dumpdir' 'a-'
+ c:/users/a047461/bin/../libexec/gcc/x86_64-w64-mingw32/12.2.0/cc1.exe -quiet -v -iprefix c:\users\a047461\bin\../lib/gcc/x86_64-w64-mingw32/12.2.0/ -D_REENTRANT myfirstcode.c -quiet -dumpdir a- -dumpbase myfirstcode.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o C:\Users\a047461\AppData\Local\Temp\ccC4hsi2.s
+GNU C17 (MinGW-W64 x86_64-msvcrt-posix-seh, built by Brecht Sanders) version 12.2.0 (x86_64-w64-mingw32)
+        compiled by GNU C version 12.2.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version UNKNOWN-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring duplicate directory "c:/users/a047461/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/12.2.0/include"
+ignoring nonexistent directory "R:/winlibs64_stage/17520.gcc/inst_gcc-12.2.0/share/gcc/include"
+ignoring nonexistent directory "/r/winlibs64_stage/17520.gcc/inst_gcc-12.2.0/share/gcc/include"
+ignoring duplicate directory "c:/users/a047461/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/12.2.0/include-fixed"
+ignoring duplicate directory "c:/users/a047461/lib/gcc/../../lib/gcc/x86_64-w64-mingw32/12.2.0/../../../../x86_64-w64-mingw32/include"
+ignoring nonexistent directory "/mingw/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ c:\users\a047461\bin\../lib/gcc/x86_64-w64-mingw32/12.2.0/include
+ c:\users\a047461\bin\../lib/gcc/x86_64-w64-mingw32/12.2.0/../../../../include
+ c:\users\a047461\bin\../lib/gcc/x86_64-w64-mingw32/12.2.0/include-fixed
+ c:\users\a047461\bin\../lib/gcc/x86_64-w64-mingw32/12.2.0/../../../../x86_64-w64-mingw32/include
+End of search list.
+GNU C17 (MinGW-W64 x86_64-msvcrt-posix-seh, built by Brecht Sanders) version 12.2.0 (x86_64-w64-mingw32)
+        compiled by GNU C version 12.2.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version UNKNOWN-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 11e0db502eb2edd262aeb87d2525f2c4
+COLLECT_GCC_OPTIONS='-v' '-mtune=generic' '-march=x86-64' '-dumpdir' 'a-'
+ c:/users/a047461/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o C:\Users\a047461\AppData\Local\Temp\cconp4e6.o C:\Users\a047461\AppData\Local\Temp\ccC4hsi2.s
+GNU assembler version 2.39 (x86_64-w64-mingw32) using BFD version (Binutils for MinGW-W64 x86_64, built by Brecht Sanders) 2.39
+COMPILER_PATH=c:/users/a047461/bin/../libexec/gcc/x86_64-w64-mingw32/12.2.0/;c:/users/a047461/bin/../libexec/gcc/;c:/users/a047461/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/../../../../x86_64-w64-mingw32/bin/
+LIBRARY_PATH=c:/users/a047461/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/;c:/users/a047461/bin/../lib/gcc/;c:/users/a047461/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;c:/users/a047461/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/../../../../lib/;c:/users/a047461/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/../../../../x86_64-w64-mingw32/lib/;c:/users/a047461/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/../../../
+COLLECT_GCC_OPTIONS='-v' '-mtune=generic' '-march=x86-64' '-dumpdir' 'a.'
+ c:/users/a047461/bin/../libexec/gcc/x86_64-w64-mingw32/12.2.0/collect2.exe -plugin c:/users/a047461/bin/../libexec/gcc/x86_64-w64-mingw32/12.2.0/liblto_plugin.dll -plugin-opt=c:/users/a047461/bin/../libexec/gcc/x86_64-w64-mingw32/12.2.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\a047461\AppData\Local\Temp\cc7FVkC6.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lkernel32 -m i386pep -Bdynamic c:/users/a047461/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o c:/users/a047461/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/crtbegin.o -Lc:/users/a047461/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0 -Lc:/users/a047461/bin/../lib/gcc -Lc:/users/a047461/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/../../../../x86_64-w64-mingw32/lib/../lib -Lc:/users/a047461/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/../../../../lib -Lc:/users/a047461/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/../../../../x86_64-w64-mingw32/lib -Lc:/users/a047461/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/../../.. C:\Users\a047461\AppData\Local\Temp\cconp4e6.o -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lkernel32 c:/users/a047461/bin/../lib/gcc/x86_64-w64-mingw32/12.2.0/crtend.o
+COLLECT_GCC_OPTIONS='-v' '-mtune=generic' '-march=x86-64' '-dumpdir' 'a.'
+Compilation
+Gcc: compilateur GNU (projet OpenSource)
+Structure d’une commande gcc:
+gcc –DDEFINE=1 file.c –o file.out –lm
+
+Compilation
+Les options les plus importantes du compilateur gcc
+-c: production d’un fichier objet, pas d’édition de lien
+-E: production d’un fichier pré-processer (.i)
+-g: activation de la génération des informations symboliques nécessaire au debuggeur
+-I<dir>  : permet de fournir un répertoire dans lequel les fichier d’entête sont recherchés (en plus des répertoires par défaut)
+-L<dir>: permet de spécifier un répertoire dans lequel les libraries sont recherchées pendant l’édition des liens.
+-o <fichier>: permet de spécifier un fichier de sortie
+-S: n’active que les étapes utiles pour la génération d’un code assembleur
+-v: active un mode de fonctionnement verbeux
+-O, -O1, -O2, -O3: active les optimisations de compilation
+-W: active les messages d’avertissements (warning)
+Voir la page de manuel de gcc: « man gcc »
+Les éléments du langage C
+Eléments du langage C
+Un programme en C est constitué des 7 groupes de composants élémentaires suivants:
+Les identificateurs
+Les mots clefs
+Les constantes
+Les chaînes de caractères
+Les opérateurs
+Les symboles de ponctuations
+Les commentaires (supprimés par le pré-processeur)
+Identificateurs
+Le rôle de l’identificateur est de donner un nom à une entité d’un programme
+Il peut désigner
+Un nom de variable ou de fonction
+Un type défini par typedef, union, struct ou enum
+Une étiquette
+C’est une suite de caractères parmi
+Les lettres (minuscules ou majuscules, mais sans accent)
+Les chiffres
+Le « souligné » (underscore en anglais ‘_’)
+Identificateurs
+Le premier caractère d’un identificateur ne peut pas être un chiffre
+Exemples valides: 
+var1
+tab_23
+_début
+Exemples invalides:
+2k
+i:j 
+Étude
+Le « underscore » est souvent utilisé comme premier caractère pour nommer des symboles spécifique de l’environnement C
+Le compilateur est sensible à la casse: a != A
+Identificateurs
+La longueur des identificateurs dépent de l’implémentation
+Certains anciens compilateurs peuvent limiter cette longueur à 32 caractères
+Les compilateurs moderne ont des limites bien supérieur (et parfois aucune limite)
+La norme ANSI tronque les identificateurs externes à 6 caractères, mais tous les compilateurs modernes en acceptent au moins 31 
+Mots clefs
+Un certain nombre de mots, appelés mots-clefs, sont réservés pour le langage lui-même et ne peuvent pas être utilisé comme identificateurs
+Le C ANSI compte 32 mots-clefs:
+
+Mots clefs
+Que l’on peut ranger en catégories
+Les spécificateurs de stockageauto   register   static   extern   typedef
+Les spécificateurs de typechar   double   enum   float   int    long   short   signed   struct   union  unsigned    void
+Les qualificateurs de typeconst   volatile
+Les instructions de contrôlebreak   case   continue   default   do   else   for   goto   if   switch   while
+Diversreturn   sizeof
+
+Commentaires
+Un commentaire débute par « /* » et se termine par « */ ».
+Par exemple,/* ceci est un commentaire */
+Il est interdit d’imbriquer des commentaires.
+Les commentaires sont supprimés par le pré-processeur (et ne sont donc pas compilés)
+Structure d’un programme C
+Structure d’un programme C
+Une expression est une suite de composants élémentaires syntaxiquement correcte
+Ex.:x = 0
+Ou bien
+     (&i >= 0) && (i < 10) && (p[i] != *ptr)
+Une instruction est une expression suivie d’un point-virgule ‘;’
+Le point-virgule signifie: « évaluer cette expression »
+Plusieurs instruction peuvent être regroupées par des accolades en une instruction composée ou bloc.
+Structure d’un programme C
+Un bloc est une instruction
+Par exemple
+if (x != 0)
+{
+	z = y / x;
+	t = y % x;
+}
+Structure d’un programme C
+Une instruction composée d’un spécificateur de type et d’une liste d’identificateurs séparés par une virgule est une déclaration.
+Par exemple
+int a;
+int b = 1, c;
+double x = 2.38e4;
+char message[80];
+En langage C, toute variable doit faire l’objet d’une déclaration avant de pouvoir être utilisée.
+Structure d’un programme C
+Un programme C se présente de la façon suivante:
+
+[ directives au préprocesseur] 
+[ déclarations de variables externes] 
+[ fonctions secondaires]
+main() 
+{
+    déclarations de variables internes
+    instructions 
+} 
+Structure d’un programme C
+La fonction principale main peut avoir des paramètres formels.
+On supposera dans un premier temps que la fonction main n’a pas de valeur de retour. Ceci est toléré par le compilateur mais produit un message d’avertissement quand on utilise l’option –Wall de gcc (cf. slide XXX).
+Les fonctions secondaires peuvent être placées indifféremment avant ou après la fonction principale. Une fonction secondaire peut se décrire de la manière suivante:
+type ma_fonction ( arguments )
+{
+    déclarations de variables internes
+    instructions
+} 
+Cette fonction retournera un objet dont le type sera type (à l’aide d’une instruction comme return objet;)
+Structure d’un programme C
+Les arguments de la fonction obéissent à une syntaxe voisine de celle des déclarations
+On met en argument de la fonction une suite d’expressions type objet séparées par des virgules
+Exemple:
+int produit(int a, int b)
+{ 
+    int resultat;
+    resultat = a * b; 
+    return(resultat);
+} 
+Les types prédéfinis
+Les types prédéfinis
+Le C est un langage typé. Cela signifie que toute variable, constante ou fonction est d’un type précis. Il définit la façon dont l’objet est représenté en mémoire.
+La mémoire de l’ordinateur se compose d’une suite continue d’octets. Chaque octet de la mémoire est caractérisé par son adresse, qui est un entier. Deux octets contigus en mémoire ont des adresses qui diffèrent d’une unité. Quand une variable est définie, il lui est attribué une adresse.
+Cette variable correspondra à une zone mémoire dont la longueur (le nombre d’octets) est fixé par le type.
+La taille mémoire correspondant aux différents types dépend des compilateurs; toutefois, la norme ANSI spécifie un certain nombre de contraintes. 
+Les types prédéfinis
+Les types de base en C concernent les caractères, les entiers et les flottants (nombres réels).
+Ils sont désignés par les mots-clefs suivants :
+char
+int
+float   double
+short   long    unsigned
+Le type caractère
+Le mot-clef char désigne un objet de type caractère
+Un char peut contenir n’importe quel élément du jeu de caractères de la machine utilisée. La plupart du temps, un objet de type char est codé sur un octet ; c’est l’objet le plus élémentaire en C. 
+Le jeu de caractères utilisé correspond généralement au codage ASCII (sur 7 bits). La plupart des machines utilisent désormais le jeu de caractères ISO-8859-n (sur 8 bits), dont les 128 premiers caractères correspondent aux caractères ASCII. Les 128 derniers caractères (codés sur 8 bits) sont utilisés pour les caractères propres aux différentes langues. 
+La version ISO-8859-1 (aussi appelée ISOLATIN-1) est utilisée pour les langues d’Europe occidentale. Ainsi, le caractère de code 232 est le ‘è’, le caractère 233 correspond au ‘é’. 
+Les compilateurs C modernes définissent un type wchar (wide char) qui permet de manipuler les caractère sur 16 bits (UTF-16).
+Le type caractère: table ASCII
+Le type caractère
+Une des particularités du type char en C est qu’il peut être assimilé à un entier : tout objet de type char peut être utilisé dans une expression qui utilise des objets de type entier. 
+Par exemple, si c est de type char, l’expression c + 1 est valide. Elle désigne le caractère suivant dans le code ASCII. La table de la slide précédente donne le code ASCII (en décimal, en octal et en hexadécimal) des caractères imprimables. Ainsi, le programme suivant imprime le caractère ’B’.
+Le type caractère
+Suivant les implémentations, le type char est signé ou non. En cas de doute, il vaut mieux préciser unsigned char ou signed char. Notons que tous les caractères imprimables sont positifs.
+Les types entiers
+Le mot-clef désignant le type entier est int. Un objet de type int est représenté par un mot “naturel” de la machine utilisée, 32 bits pour un DEC alpha ou un PC Intel.
+Le type int peut être précédé d’un attribut de précision (short ou long) et/ou d’un attribut de représentation (unsigned). 
+Un objet de type short int a au moins la taille d’un char et au plus la taille d’un int. 
+En général, un short int est codé sur 16 bits. Un objet de type long int a au moins la taille d’un int (64 bits sur un Cortex-A73, 32 bits sur un PC Intel x86, 64 bits sur un PC amd x86_64).
+Les types entiers
+Les types entiers
+Le bit de poids fort d’un entier est son signe. Un entier positif est donc représenté en mémoire par la suite de 32 bits dont le bit de poids fort vaut 0 et les 31 autres bits correspondent à la décomposition de l’entier en base 2. 
+Par exemple, pour des objets de type char (8 bits), l’entier positif 12 sera représenté en mémoire par 00001100. Un entier négatif est, lui, représenté par une suite de 32 bits dont le bit de poids fort vaut 1 et les 31 autres bits correspondent à la valeur absolue de l’entier représentée suivant la technique dite du “complément à 2”. Cela signifie que l’on exprime la valeur absolue de l’entier sous forme binaire, que l’on prend le complémentaire bit-à-bit de cette valeur et que l’on ajoute 1 au résultat. 
+Ainsi, pour des objets de type signed char (8 bits), -1 sera représenté par 11111111, -2 par 11111110, -12 par 11110100. Un int peut donc représenter un entier entre −231 et (231 − 1). L’attribut unsigned spécifie que l’entier n’a pas de signe. Un unsigned int peut donc représenter un entier entre 0 et (232 − 1). 
+Les types entiers
+Sur un PC amd x86_64, on utilisera donc un des types suivants en fonction de la taille des données à stocker:
+Les types entiers
+Plus généralement, les valeurs maximales et minimales des différents types entiers sont définies dans la librairie standard limits.h.
+Le mot-clef sizeof a pour syntaxe
+			sizeof(expression)
+où expression est un type ou un objet. Le résultat est un entier égal au nombre d’octets nécessaires pour stocker le type ou l’objet. Par exemple:
+unsigned short x;
+taille = sizeof(unsigned short);
+taille = sizeof(x);
+Dans les deux cas, taille vaudra 4
+Les types entiers
+Afin d’obtenir des programmes portables, on s’efforcera de ne jamais présumer de la taille d’un objet de type entier. 
+On utilisera toujours 
+une des constantes de limits.h.
+le résultat obtenu en appliquant l’opérateur sizeof.
+Les types flottants
+Les types float, double et long double servent à représenter des nombres en virgule flottante. Ils correspondent aux différentes précisions possibles.
+Les types flottants
+Les flottants sont généralement stockés en mémoire sous la représentation de la virgule flottante normalisée. On écrit le nombre sous la forme 				“signe 0, mantisse Bexposant”En général, B = 2. Le digit de poids fort de la mantisse n’est jamais nul.
+Un flottant est donc représenté par une suite de bits dont le bit de poids fort correspond au signe du nombre. Le champ du milieu correspond à la représentation binaire de l’exposant alors que les bits de poids faible servent à représenter la mantisse.
+Les constantes
+Une constante est une valeur qui apparaît littéralement dans le code source d’un programme, le type de la constante étant déterminé par la façon dont la constante est écrite. 
+Les constantes peuvent être de 4 types : entier, flottant (nombre réel), caractère, énumération.
+Ces constantes vont être utilisées, par exemple, pour initialiser une variable.
+Constantes entières
+Une constante entière peut être représentée de 3 manières différentes suivant la base dans laquelle elle est écrite :
+décimale : par exemple, 0 et 2437348 sont des constantes entières décimales.
+octale : la représentation octale d’un entier correspond à sa décomposition en base 8.
+Les constantes octales doivent commencer par un zéro. Par exemple, les représentations octales des entiers 0 et 255 sont respectivement 00 et 0377.
+hexadécimale : la représentation hexadécimale d’un entier correspond à sa décomposition en base 16. Les lettres de a à f sont utilisées pour représenter les nombres de 10 à 15. Les constantes hexadécimales doivent commencer par 0x. Par exemple, les représentations hexadécimales de 14 et 255 sont respectivement 0xe et 0xff.
+Constantes entières
+Par défaut, une constante décimale est représentée avec le format interne le plus court permettant de la représenter parmi les formats des types int, long int et unsigned long int tandis qu’une constante octale ou hexadécimale est représentée avec le format interne le plus court permettant encore de la représenter parmi les formats des types int, unsigned int, long int et unsigned long int.
+On peut cependant spécifier explicitement le format d’une constante entière en la suffixant par u ou U pour indiquer qu’elle est non signée, ou en la suffixant par l ou L pour indiquer qu’elle est de type long.
+Constantes entières
+Par exemple:
+Constantes réelles
+Les constantes réelles sont représentées par la notation classique par mantisse et exposant. L’exposant est introduit par la lettre e ou E ; il s’agit d’un nombre décimal éventuellement signé.
+Par défaut, une constante réelle est représentée avec le format du type double. On peut cependant influer sur la représentation interne de la constante en lui ajoutant un des suffixes f (indifféremment F) ou l (indifféremment L). Les suffixes f et F forcent la représentation de la constante sous forme d’un float, les suffixes l et L forcent la représentation sous forme d’un long double. 
+Constantes réelles
+Par exemple:
+Constantes caractères
+Pour désigner un caractère imprimable, il suffit de le mettre entre apostrophes (par ex. ’A’ ou ’$’). Les seuls caractères imprimables qu’on ne peut pas représenter de cette façon sont l’antislash et l’apostrophe, qui sont respectivement désignés par \\ et \’. 
+Le point d’interrogation et les guillemets peuvent aussi être désignés par les notations \? et \". Les caractères non imprimables peuvent être désignés par ’\code-octal’ où code-octal est le code en octal du caractère. On peut aussi écrire ’\xcode-hexa’ où code-hexa est le code en hexadécimal du caractère (cf. slide 40).
+Constantes caractères
+Par exemple, ’\33’ et ’\x1b’ désignent le caractère d’échappement (‘escape’). Toutefois, les caractères non-imprimables les plus fréquents disposent aussi d’une notation plus simple :
+Constantes chaînes de caractères
+Une chaîne de caractères est une suite de caractères entourés par des guillemets. Par exemple,		"Ceci est une chaîne de caractères" 
+Une chaîne de caractères peut contenir des caractères non imprimables, désignés par les représentations vues précédemment. Par exemple,		"ligne 1 \n ligne 2" 
+A l’intérieur d’une chaîne de caractères, le caractère " doit être désigné par \". Enfin, le caractère \ suivi d’un passage à la ligne est ignoré. Cela permet de faire tenir de longues chaînes de caractères sur plusieurs lignes. Par exemple,		"ceci est une longue longue longue longue longue longue longue longue \		chaîne de caractères"
+Les opérateurs
+L’affectation
+En C, l’affectation est un opérateur à part entière. Elle est symbolisée par le signe ‘=‘. 
+Sa syntaxe est la suivante :			variable = expression
+Le terme de gauche de l’affectation peut être une variable simple, un élément de tableau mais pas une constante. Cette expression a pour effet d’évaluer expression et d’affecter la valeur obtenue à variable. De plus, cette expression possède une valeur, qui est celle de expression.
+Ainsi, l’expression i = 5 vaut 5.
+L’affectation
+L’affectation effectue une conversion de type implicite : la valeur de l’expression (terme de droite) est convertie dans le type du terme de gauche. Par exemple, le programme suivant
+main()
+{
+		int i, j = 2;
+		float x = 2.5;
+		i = j + x;
+		x = x + i;
+		printf("\n %f \n",x);
+}
+imprime pour x la valeur 6.5 (et non 7), car dans l’instruction i = j + x;, l’expression j + x a été convertie en entier.
+Les opérateurs arithmétiques
+Les opérateurs arithmétiques classiques sont l’opérateur unaire - (changement de signe) ainsi que les opérateurs binaires
++		addition
+- 	soustration
+*		multiplication
+/		division
+%		reste de la division (modulo)
+Les opérateurs arithmétiques
+Ces opérateurs agissent de la façon attendue sur les entiers comme sur les flottants. Leurs seules spécificités sont les suivantes :
+Contrairement à d’autres langages, le C ne dispose que de la notation / pour désigner à la fois la division entière et la division entre flottants. Si les deux opérandes sont de type entier, l’opérateur / produira une division entière (quotient de la division). Par contre, il délivrera une valeur flottante dès que l’un des opérandes est un flottant. Par exemple,
+float x;
+x = 3 / 2;
+
+affecte à x la valeur 1.
+Les opérateurs arithmétiques
+Par contre
+	x = 3 / 2.;
+affecte à x la valeur 1.5.
+L’opérateur modulo ne s’applique qu’à des opérandes de type entier. Si l’un des deux opérandes est négatif, le signe du reste dépend de l’implémentation, mais il est en général le même que celui du dividende.
+Notons enfin qu’il n’y a pas en C d’opérateur effectuant l’élévation à la puissance. De façon générale, il faut utiliser la fonction pow(x,y) de la librairie math.h pour calculer xy.
+Les opérateurs relationnels
+Les opérateurs relationnels
+Les deux expressions sont évaluées puis comparées. La valeur rendue est de type int (il n’y a pas de type booléen en C); elle vaut 1 si la condition est vraie, et 0 sinon.
+Attention à ne pas confondre l’opérateur de test d’égalité == avec l’opérateur d’affection =. 
+Ainsi, le programme suivant:
+
+
+
+
+Imprime à l’écran « a et b sont égaux ! »
+Les opérateurs logiques booléens
+Les opérateurs logiques booléens
+Par exemple, dans:
+
+
+
+
+La dernière clause ne sera pas évalué si i n’est pas entre 0 et 9.
+Les opérateurs logiques bit à bit
+Les six opérateurs suivants permettent de manipuler des entiers au niveau du bit. Ils s’appliquent aux entiers de toute longueur (short, int ou long), signés ou non.
+
+
+
+En pratique, les opérateurs &, | et ~ consistent à appliquer bit à bit les opérations suivantes
+Les opérateurs logiques bit à bit
+L’opérateur unaire ~ change la valeur de chaque bit d’un entier. Le décalage à droite et à gauche effectuent respectivement une multiplication et une division par une puissance de 2.
+Notons que ces décalages ne sont pas des décalages circulaires (ce qui dépasse disparaît).
+Considérons par exemple les entiers a=77 et b=23 de type unsigned char (i.e. 8 bits).
+En base 2 il s’écrivent respectivement 01001101 et 00010111.
+Les opérateurs logiques bit à bit
+Les opérateurs d’affectation composée
+Les opérateurs d’affectation composée sont
+                +=  -=   *=   /=   %=   &=   ^=   |=   <<=   >>=
+Pour tout opérateur op, l’expression
+        expression1 <op>= expression2
+Est équivalente à
+        expression1 = expression1 <op> expression2
+Toutefois, avec l’affectation composée, expression1 n’est évalué qu’une seule fois.
+Les opérateurs d’incrémentation et de décrémentation
+Les opérateurs d’incrémentation ++ et de décrémentation -- s’utilisent aussi bien en suffixe (i++) qu’en préfixe (++i). Dans les deux cas la variable i sera incrémentée, toutefois dans la notation suffixe la valeur retournée sera l’ancienne valeur de i alors que dans la notation préfixe se sera la nouvelle. Par exemple,
+L’opérateur virgule
+Une expression peut être constituée d’une suite d’expressions séparées par des virgules :
+         expression1, expression2, ... , expressionn 
+Cette expression est alors évaluée de gauche à droite. Sa valeur sera la valeur de l’expression de droite. Par exemple, le programme
+
+
+
+
+
+Imprime b = 5
+L’opérateur virgule
+La virgule séparant les arguments d’une fonction ou les déclarations de variables n’est pas l’opérateur virgule. En particulier l’évaluation de gauche à droite n’est pas garantie. 
+Par exemple l’instruction composée
+
+
+
+
+
+Compilée avec gcc, produira la sortie « 2 1 », sur un PC Intel x86 Linux (gcc-2.95.3).
+Compilée avec cc, produira la sortie « 2 2 », sur un DEC Alpha/OSF1 (compilateur natif OSF1), avec un compilateur gcc moderne ou avec clang.
+L’opérateur conditionnel ternaire
+L’opérateur conditionnel '?' est un opérateur ternaire. Sa syntaxe est la suivante :
+		condition ? expression1 : expression2
+Cette expression est égale à expression1 si condition est satisfaite, et à expression2 sinon. Par exemple, l’expression
+		x >= 0 ? X : -x
+Correspond à la valeur absolue d’un nombre. De même l’instruction
+		m = ((a > b) ? (a) : (b));
+affecte à m le maximum de a et de b.
+L’opérateur de conversion de type
+L’opérateur de conversion de type, appelé 'cast', permet de modifier explicitement le type d’un objet. On écrit
+							(type) objet
+Par exemple,
+
+
+
+
+Retourne la valeur 1.500000.
+L’opérateur adresse
+L’opérateur d’adresse & appliqué à une variable retourne l’adresse mémoire de cette variable. La syntaxe est
+								  &objet
+Règles de priorité des opérateurs
+Le tableau suivant classe les opérateurs par ordres de priorité décroissants. Les opérateurs placés sur une même ligne ont même priorité. 
+Si dans une expression figurent plusieurs opérateurs de même priorité, l’ordre d’évaluation est définie par la flèche de la seconde colonne du tableau. 
+On préferera toutefois mettre des parenthèses en cas de doute...
+Règles de priorité des opérateurs
+Règles de priorité des opérateurs
+Par exemple, les opérateurs logiques bit-à-bit sont moins prioritaires que les opérateurs relationnels.
+Cela implique que dans des tests sur les bits, il faut parenthéser les expressions.
+Par exemple, il faut écrire 
+		if ((x ^ y) != 0)
+Instructions de branchements conditionnels
+Les instructions de branchement conditionnel
+On appelle instruction de contrôle toute instruction qui permet de contrôler le fonctionnement d’un programme. Parmi les instructions de contrôle, on distingue les instructions de branchement et les boucles. Les instructions de branchement permettent de déterminer quelles instructions seront exécutées et dans quel ordre.
+branchement conditionnel: if/else
+La forme la plus générale est celle-ci :
+	if (expression1)		instruction1	else if (expression2)		instruction2		 ...	else if (expressionn)		instructionn	else		instruction-∞
+avec un nombre quelconque de else if ( ... ). Le dernier else est toujours facultatif.
+branchement conditionnel: if/else
+La forme la plus simple est :
+	if (expression)		instruction	
+Chaque instruction peut être un bloc d’instruction, par exemple :
+	if (expression)	{		instruction1;		...		instructionn;
+	}
+branchement multiple: switch
+Sa forme la plus générale est celle-ci :
+	switch (expression)	{	 case constante1:		liste d’instructions1;		break;
+	 ...
+	 case constanten:		liste d’instructionsn;		break;	 default:		liste d’instructions∞;	}
+Si la valeur de expression est égale à l’une des constantes, la liste d’instructions correspondant est exécutée. Sinon la liste d’instructions∞ correspondant à default est exécutée. L’instruction default est facultative.
+boucles
+Les boucles
+Les boucles permettent de répéter une série d’instructions tant qu’une certaine condition n’est pas vérifiée.
+Boucle while
+La syntaxe d’une boucle while est la suivante :
+	while (expression)
+		instruction;
+Tant que expression est vérifiée (i.e., non nulle), instruction est exécutée. Si instruction est nulle au départ, instruction ne sera jamais exécutée. instruction peut évidemment être une instruction composée. Par exemple, le programme suivant imprime les entiers de 1 à 9.
+Boucle do / while
+Il peut arriver que l’on ne veuille effectuer le test de continuation qu’après avoir exécuté l’instruction. Dans ce cas, on utilise la boucle do / while. Sa syntaxe est : 
+	do		instruction	while ( expression );
+Ici, sera exécuté tant que est non nulle. Cela signifie donc que est toujours exécutée au moins une fois. Par exemple, pour saisir au clavier un entier entre 1 et 10 :
+Boucle for
+La syntaxe de for est :
+	for ( expr1 ; expr2; expr3 )
+		instruction
+Une version équivalente, plus intuitive, peut être exprimé sous forme de while : 
+	expr1;	while ( expr2 )	{		instruction;		expr3;	}
+Les expressions sont les sens suivant:
+expr1: expression d’affectation initiale
+expr2: condition de continuation (tant que)
+expr3: expression d’incrémentation
+Boucle for
+Par exemple, pour imprimer tous les entiers de 0 à 9, on programme:
+	for (i = 0; i < 10; i++)		printf("%d\n« , i);
+A la fin de la boucle, la variable i vaut 10. Les trois expressions utilisées dans une boucle for peuvent être constituées de plusieurs expressionsséparées par des virgules. Cela permet, par exemple, de faire plusieurs initialisations à la fois. Par exemple, pour calculer la factorielle d’un entier, on peut écrire :
+Boucle for
+On peut également insérer l’instruction fact *= i; dans la boucle for, ce qui donne :
+
+
+Et même, dans les compilateurs modernes : 
+
+
+On évitera toutefois ce type d’acrobaties qui n’apportent rien et rendent le code source difficilement lisible !
+Les instructions de branchements non conditionnel
+Branchement non conditionnel break
+On a vu le rôle de l’instruction break; au sein d’une instruction de branchement multiple switch. L’instruction break peut, plus généralement, être employée à l’intérieur de n’importe quelle boucle. Elle permet d’interrompre le déroulement de la boucle, et passe à la première instruction qui suit la boucle. En cas de boucles imbriquées, break fait sortir de la boucle la plus interne. 
+Par exemple, le programme suivant :
+Branchement non conditionnel continue
+L’instruction continue permet de passer directement au tour de boucle suivant, sans exécuter les autres instructions de la boucle. Ainsi le programme
+
+
+
+Imprime 
+Branchement non conditionnel goto
+L’instruction goto permet d’effectuer un saut jusqu’à l’instruction etiquette correspondant. Elle est à proscrire de tout programme C tant que vous n’êtes pas un guru du C.
+Vous trouverez beaucoup de goto dans le code sources des drivers du noyau Linux, par exemple. La raison est que l’utilisation de cette instruction permet, parfois, de générer du code machine plus efficace, ou plus petit. Mais cela est très dépendant de l’implémentation et des options de compilation. Laissez donc, pour le moment, cela aux programmeurs très expérimentés !
+Fonctions d’entrées-sorties
+Fonctions d’entrées-sorties classiques
+Il s’agit des fonctions de la librairie standard, déclarées dans le fichier d’en-tête stdio.h, et utilisées avec les unités classiques d’entrées-sorties, qui sont respectivement le clavier et l’écran. Sur certains compilateurs, l’inclusion du fichier d’en-tête stdio.h par la directive au préprocesseur#include <stdio.h>n’est pas nécessaire pour utiliser printf et scanf.
+Fonctions d’écriture printf
+La fonction printf est une fonction d’impression formatée, ce qui signifie que les données sont converties selon le format particulier choisi. Sa syntaxe est :	printf("chaîne de contrôle",expression1, ..., expressionn);
+La chaîne de contrôle contient le texte à afficher et les spécifications de format correspondant à chaque expression de la liste. Les spécifications de format ont pour but d’annoncer le format des données à visualiser. Elles sont introduites par le caractère '%', suivi d’un caractère désignant le format d’impression. Les formats d’impression en C sont donnés dans la table de la slide suivante.
+Fonctions d’écriture printf
+Fonctions d’écriture printf
+En plus du caractère donnant le type des données, on peut éventuellement préciser certains paramètres du format d’impression, qui sont spécifiés entre le % et le caractère de conversion dans l’ordre suivant:
+largeur minimale du champ d’impression : %10d spécifie qu’au moins 10 caractères seront réservés pour imprimer l’entier. Par défaut, la donnée sera cadrée à droite du champ. Le signe - avant le format signifie que la donnée sera cadrée à gauche du champ (%-10d).
+précision : %.12f signifie qu’un flottant sera imprimé avec 12 chiffres après la virgule. De même %10.2f signifie que l’on réserve 12 caractères (incluant le caractère '.') pour imprimer le flottant et que 2 d’entre eux sont destinés aux chiffres après la virgule. Lorsque la précision n’est pas spécifiée, elle correspond par défaut à 6 chiffres après la virgule. Pour une chaîne de caractères, la précision correspond au nombre de caractères imprimés : %30.4s signifie que l’on réserve un champ de 30 caractères pour imprimer la chaîne mais que seulement les 4 premiers caractères seront imprimés (suivis de 26 blancs).
+Fonctions d’écriture printf
+int i = 23674;
+int j = -23674;
+long int k = (1l << 32);
+double x = 1e-8 + 1000;
+char c = ’A’;
+char *chaine = "chaine de caractères";
+
+printf("impression de i: \n");
+printf("%d \t %u \t %o \t %x", i, i, i, i);
+printf("\nimpression de j: \n");
+printf("%d \t %u \t %o \t %x", j, j, j, j);
+printf("\nimpression de k: \n");
+printf("%ld \t %lo \t %lx", k, k, k);
+printf("\n%ld \t %lu \t %lo \t %lx", k, k, k, k);
+printf("\nimpression de x: \n");
+printf("%f \t %e \t %g", x, x, x);
+printf("\n%.2f \t %.2e", x, x);
+printf("\n%.20f \t %.20e", x, x);
+printf("\nimpression de c: \n");
+printf("%c \t %d", c, c);
+printf("\nimpression de chaine: \n");
+printf("%s \t %.10s", chaine, chaine);
+printf("\n");
+Fonctions de saisie scanf
+La fonction scanf permet de saisir des données au clavier et de les stocker aux adresses spécifiées par les arguments de la fonctions.		scanf("chaîne de contrôle",argument1,...,argumentn)
+La chaîne de contrôle indique le format dans lequel les données lues sont converties. Elle ne contient pas d’autres caractères (notamment pas de \n). Comme pour printf, les conversions de format sont spécifiées par un caractère précédé du signe '%'. Les formats valides pour la fonction scanf diffèrent légèrement de ceux de la fonction printf.
+Les données à entrer au clavier doivent être séparées par des blancs ou des <RETURN> sauf s’il s’agit de caractères. On peut toutefois fixer le nombre de caractères de la donnée à lire. Par exemple %3s pour une chaîne de 3 caractères, %10d pour un entier qui s’étend sur 10 chiffres, signe inclus.
+Fonctions de saisie scanf
+Exemple
+Fonctions desaisie scanf
+Impression et lecture de caractères
+Les fonctions getchar et putchar permettent respectivement de lire et d’imprimer des caractères. Il s’agit de fonctions d’entrées-sorties non formatées.
+La fonction getchar retourne un int correspondant au caractère lu. Pour mettre le caractère lu dans une variable caractere, on écrit :		int caractere = getchar();
+Lorsqu’elle  détecte la fin de fichier, elle retourne l’entier EOF (End Of File), valeur définie dans la librairie stdio.h. En général, la constante EOF vaut -1.
+La fonction putchar écrit caractere sur la sortie standard :		putchar(caractere);
+Elle retourne un int correspondant à l’entier lu ou à la constante EOF en cas d’erreur. 
+Impression et lecture de caractères
+Par exemple, le programme suivant lit un fichier et le recopie caractère par caractère à l’écran.
+
+
+
+
+
+Pour l’exécuter, il suffit d’utiliser l’opérateur de redirection d’Unix :		programme-executable < nom-de-fichier
+Impression et lecture de caractères
+Notons que l’expression (c = getchar()) dans le programme précédent a pour valeur la valeur de l’expression getchar() qui est de type int. Le test (c = getchar()) != EOF compare donc bien deux objets de type int (signés).
+Ce n’est par contre pas le cas dans le programme suivant :
+
+
+
+
+Impression et lecture de caractères
+Ici, le test c != EOF compare un objet de type char et la constante EOF qui vaut -1. 
+Si le type char est non signé par défaut, cette condition est donc toujours vérifiée. 
+Si le type char est signé, alors le caractère de code 255, ÿ, sera converti en l’entier -1. 
+La rencontre du caractère ÿ sera donc interprétée comme une fin de fichier. Il est donc recommandé de déclarer de type int (et non de type char), une variable destinée à recevoir un caractère lu par getchar afin de permettre la détection de fin de fichier.
+
+
+
+Conventions d’écriture d’un programme C
+Il existe très peu de contraintes dans l’écriture d’un programme C. Toutefois ne prendre aucune précaution aboutirait à des programmes illisibles. Aussi existe-t-il un certain nombre de conventions.
+On n’écrit qu’une seule instruction par ligne : le point virgule d’une instruction ou d’une déclaration est toujours le dernier caractère de la ligne.
+Les instructions sont disposées de telle façon que la structure modulaire du programme soit mise en évidence. En particulier, une accolade ouvrante marquant le début d’un bloc doit être seule sur sa ligne ou placée à la fin d’une ligne. Une accolade fermante est toujours seule sur sa ligne.
+On laisse un blanc
+entre les mots-clefs if, while, do, switch et la parenthèse ouvrante qui suit, 
+après une virgule,
+de part et d’autre d’un opérateur binaire.
+On ne met pas de blanc entre un opérateur unaire et son opérande, ni entre les deux caractères d’un opérateur d’affectation composée.
+Les instructions doivent être indentées afin que toutes les instructions d’un même bloc soient alignées. Le mieux est d’utiliser le mode C d’Emacs (les environnements de développements modernes proposent, désormais, tous ce type de fonctionnalité).
+Les types composés
+Types composés
+A partir des types prédéfinis du C (caractères, entiers, flottants), on peut créer de nouveaux types, appelés types composés, qui permettent de représenter des ensembles de données organisées.
+Les tableaux
+Un tableau est un ensemble fini d’éléments de même type, stockés en mémoire à des adresses contiguës.
+La déclaration d’un tableau à une dimension se fait de la façon suivante :		type nom-du-tableau[nombre-éléments];
+Où nombre-éléments est une expression constante entière positive. Par exemple, la déclaration int tab[10]; indique que tab est un tableau de 10 éléments de type int. Cette déclaration alloue donc en mémoire pour l’objet tab un espace de 10 × 4 octets consécutifs.
+Pour plus de clarté, il est recommandé de donner un nom à la constante nombre-éléments par une directive au préprocesseur, par exemple		#define nombre-éléments 	10
+On accède à un élément du tableau en lui appliquant l’opérateur []. Les éléments d’un tableau sont toujours numérotés de 0 à nombre-éléments -1. 
+Les tableaux
+Le programme suivant imprime les éléments du tableau tab :
+
+
+
+
+
+
+Un tableau correspond, en fait, en terme d’implémentation, à un pointeur vers le premier élément du tableau. Ce pointeur est constant. Cela implique en particulier qu’aucune opération globale n’est autorisée sur un tableau. Notamment, un tableau ne peut pas figurer à gauche d’un opérateur d’affectation. 
+Les tableaux
+Par exemple, on ne peut pas écrire “tab1 = tab2;”. Il faut effectuer l’affectation pour chacun des éléments du tableau : 
+
+
+
+
+
+On peut initialiser un tableau lors de sa déclaration par une liste de constantes de la façon suivante :	type nom-du-tableau[N] = {constante1,constante2,...,constanteN}; 
+Les tableaux
+On peut initialiser un tableau lors de sa déclaration par une liste de constantes de la façon suivante :	type nom-du-tableau[N] = {constante1,constante2,...,constanteN};
+Par exemple, on peut écrire
+
+
+
+
+
+
+Si le nombre de données dans la liste d’initialisation est inférieur à la dimension du tableau, seuls les premiers éléments seront initialisés. Les autres éléments seront mis à zéro si le tableau est une variable globale (extérieure à toute fonction) ou une variable locale de classe de mémorisation static (cf. slide ).
+Les tableaux
+De la même manière un tableau de caractères peut être initialisé par une liste de caractères, mais aussi par une chaîne de caractères littérale. Notons que le compilateur complète toute chaîne de caractères avec un caractère nul ’\0’. Il faut donc que le tableau ait au moins un élément de plus que le nombre de caractères de la chaîne littérale.
+
+
+
+
+
+
+Lors d’une initialisation, il est également possible de ne pas spécifier le nombre d’éléments du tableau. Par défaut, il correspondra au nombre de constantes de la liste d’initialisation. Ainsi le programme suivant imprime le nombre de caractères du tableau tab, ici 8.
+Les tableaux
+Ainsi le programme suivant imprime le nombre de caractères du tableau tab, ici 8.
+
+
+
+
+
+De manière similaire, on peut déclarer un tableau à plusieurs dimensions. Par exemple, pour un tableau à deux dimensions : 		type nom-du-tableau[nb-lignes][nb-colonnes]
+En fait, un tableau à deux dimensions est un tableau unidimensionnel dont chaque élément est lui-même un tableau. On accède à un élément du tableau par l’expression “tableau[i][j]”.
+Les tableaux
+Pour initialiser un tableau à plusieurs dimensions à la compilation, on utilise une liste dont chaque élément est une liste de constantes :
+Les structures
+Une structure est une suite finie d’objets de types différents. Contrairement aux tableaux, les différents éléments d’une structure n’occupent pas nécessairement des zones contiguës en mémoire. Chaque élément de la structure, appelé membre ou champ, est désigné par un identificateur.
+On distingue la déclaration d’un modèle de structure de celle d’un objet de type structure correspondant à un modèle donné. La déclaration d’un modèle de structure dont l’identificateur est modele suit la syntaxe suivante :	struct modele { 		type1 membre1; 		type2 membre2;     	...     	typen membren; };
+Les structures
+Pour déclarer un objet de type structure correspondant au modèle précédent, on utilise la syntaxe :		struct modele objet;
+ou bien, si le modèle n’a pas été déclaré au préalable :	struct modele { 		type1 membre1; 		type2 membre2;     	...     	typen membren; } objet;
+Les structures
+On accède aux différents membres d’une structure grâce à l’opérateur membre de structure, noté '.’ . Le ième membre de objet est désigné par l’expression						objet.membre-i
+On peut effectuer sur le ième membre de la structure toutes les opérations valides sur des données de type typei. 
+Les structures
+Par exemple, le programme suivant définit la structure complexe, composée de deux champs de type double ; il calcule la norme d’un nombre complexe.
+
+
+
+
+
+
+
+Les règles d’initialisation d’une structure lors de sa déclaration sont les mêmes que pour les tableaux. On écrit par exemple :		struct complexe z = {3. , 4.};
+Les structures
+En ANSI C, on peut appliquer l’opérateur d’affectation aux structures (à la différence des tableaux). Dans le contexte précédent, on peut écrire :
+Les champs de bits
+Il est possible en C de spécifier la longueur des champs d’une structure au bit près si ce champ est de type entier (int ou unsigned int). Cela se fait en précisant le nombre de bits du champ avant le ; qui suit sa déclaration. Par exemple, la structure suivante
+struct registre
+{
+		unsigned int actif : 1;
+		unsigned int valeur : 31;
+}
+possède deux membres, actif qui est codé sur un seul bit, et valeur qui est codé sur 31 bits.
+Tout objet de type struct registre est donc codé sur 32 bits. Toutefois, l’ordre dans lequel les champs sont placés à l’intérieur de ce mot de 32 bits dépend de l’implémentation. 
+Les champs de bits
+Il est possible en C de spécifier la longueur des champs d’une structure au bit près si ce champ est de type entier (int ou unsigned int). Cela se fait en précisant le nombre de bits du champ avant le ; qui suit sa déclaration. Par exemple, la structure suivante
+struct registre
+{
+		unsigned int actif : 1;
+		unsigned int valeur : 31;
+}
+possède deux membres, actif qui est codé sur un seul bit, et valeur qui est codé sur 31 bits.
+Tout objet de type struct registre est donc codé sur 32 bits. Toutefois, l’ordre dans lequel les champs sont placés à l’intérieur de ce mot de 32 bits dépend de l’implémentation. 
+Les champs de bits
+Le champ actif de la structure ne peut prendre que les valeurs 0 et 1. Aussi, si r est un objet de type struct registre, l’opération r.actif += 2; ne modifie pas la valeur du champ.
+La taille d’un champ de bits doit être inférieure au nombre de bits d’un entier. Notons enfin qu’un champ de bits n’a pas d’adresse ; on ne peut donc pas lui appliquer l’opérateur &. 
+Les unions
+Une union désigne un ensemble de variables de types différents susceptibles d’occuper alternativement une même zone mémoire. Une union permet donc de définir un objet comme pouvant être d’un type au choix parmi un ensemble fini de types. Si les membres d’une union sont de longueurs différentes, la place réservée en mémoire pour la représenter correspond à la taille du membre le plus grand.
+Les déclarations et les opérations sur les objets de type union sont les mêmes que celles sur les objets de type struct. Dans l’exemple suivant, la variable hier de type union jour peut être soit un entier, soit un caractère.
+Les unions
+Une union désigne un ensemble de variables de types différents susceptibles d’occuper alternativement une même zone mémoire. Une union permet donc de définir un objet comme pouvant être d’un type au choix parmi un ensemble fini de types. Si les membres d’une union sont de longueurs différentes, la place réservée en mémoire pour la représenter correspond à la taille du membre le plus grand.
+Les déclarations et les opérations sur les objets de type union sont les mêmes que celles sur les objets de type struct. 
+Les unions
+Dans l’exemple suivant, la variable hier de type union jour peut être soit un entier, soit un caractère.
+
+
+
+
+
+
+
+Les unions peuvent être utiles lorsqu’on a besoin de voir un objet sous des types différents (mais en général de même taille). 
+Les unions
+Par exemple, le programme suivant permet de manipuler en même temps les deux champs de type unsigned int d’une structure en les identifiant à un objet de type unsigned long (en supposant que la taille d’un entier long est deux fois celle d’un int).
+
+
+
+
+
+
+Les énumérations
+Les énumérations permettent de définir un type par la liste des valeurs qu’il peut prendre.
+Un objet de type énumération est défini par le mot-clef enum et un identificateur de modèle, suivis de la liste des valeurs que peut prendre cet objet :enum modele {constante1, constante2,...,constanten};
+En terme d’implémentation, les énumérations sont representes par des int. Les valeurs possibles constante1, constante2,...,constanten sont codées par des entiers de 0 à n-1. 
+Les énumérations
+Par exemple, le type enum booleen défini dans le programme suivant associe l’entier 0 à la valeur faux et l’entier 1 à la valeur vrai.
+
+
+
+
+
+On peut modifier le codage par défaut des valeurs de la liste lors de la déclaration du type énuméré, par exemple :		enum booleen {faux = 12, vrai = 23};
+Définition de types avec typedef
+Pour alléger l’écriture des programmes, on peut affecter un nouvel identificateur à un type composé à l’aide de typedef : 		typedef type synonyme;
+Par exemple,
+LES POINTEURS
+Les pointeurs
+Toute variable manipulée dans un programme est stockée quelque part en mémoire centrale. 
+Cette mémoire est constituée d’octets qui sont identifiés de manière univoque par un numéro que l’on appelle adresse. Pour retrouver une variable, il suffit donc de connaître l’adresse de l’octet où elle est stockée (ou, s’il s’agit d’une variable qui recouvre plusieurs octets contigus, l’adresse du premier de ces octets). 
+Pour des raisons évidentes de lisibilité, on désigne souvent les variables par des identificateurs, et non par leur adresse. C’est le compilateur qui fait alors le lien entre l’identificateur d’une variable et son adresse en mémoire (c’est une des étapes de l’édition de liens, rappelez vous la compilation). 
+Toutefois, il est parfois très pratique de manipuler directement une variable par son adresse.
+Souvenez vous, le langage C est un langage typé. Mais c’est un langage dit « typé faible ». Il est facile de modifier le type d’une variable avec un cast (rappelez vous de cette opération) implicite (le C transforme le type de la variable sans aucune indication du programmeur). Les langages « typé fort » n’acceptent que les changements de type explicites (c’est-à-dire qu’il faut implémenter l’opération de changement de type). Java, C#, C++ sont des langages « typés fort ». Evidemment sur l’échelle de dureté du typage, il y a une multitude de niveaux.
+Adresse et valeur d’une variable
+On appelle Lvalue (left value) tout objet du langage placé à gauche d’un opérateur (et pouvant être la cible d’une affectation).
+Une Lvalue est caractérisée par :
+Son adresse : c’est-à-dire l’adresse-mémoire à partir de laquelle l’objet est stocké 
+Sa valeur : c’est-à-dire ce qui est effectivement stocké à cette adresse
+Adresse et valeur d’une variable
+Dans l’exemple,
+
+
+
+Si le compilateur a placé la variable i à l’adresse 0x1FFFF760 en mémoire, et la variable j `a l’adresse 0x1FFFF764, on a 
+Adresse et valeur d’une variable
+Deux variables différentes ont des adresses différentes. L’affectation i = j; n’opère que sur les valeurs des variables. Les variables i et j étant de type int, elles sont stockées sur 4 octets. Ainsi la valeur de i est stockée sur les octets d’adresse 0x1FFFF760 à 0x1FFFF763.
+L’adresse d’un objet étant un numéro d’octet en mémoire, il s’agit d’un entier quelque soit le type de l’objet considéré. Le format interne de cet entier (16 bits, 32 bits ou 64 bits) dépend des architectures.
+L’opérateur & permet d’accéder à l’adresse d’une variable. Toutefois &i n’est pas une Lvalue mais une constante : on ne peut pas faire figurer &i à gauche d’un opérateur d’affectation. Pour pouvoir manipuler des adresses, on doit donc recourir un nouveau type d’objets, les pointeurs. 
+Adresse et valeur d’une variable
+Adresse et valeur d’une variable
+Notion de pointeur
+Un pointeur est un objet (Lvalue) dont la valeur est égale à l’adresse d’un autre objet. On déclare un pointeur par l’instruction :			type *nom-du-pointeur;
+où type est le type de l’objet pointé. 
+Cette déclaration déclare un identificateur, nom-du-pointeur, associé à un objet dont la valeur est l’adresse d’un autre objet de type type. L’identificateur nom-du-pointeur est donc en quelque sorte un identificateur d’adresse. Comme pour n’importe quelle Lvalue, sa valeur est modifiable.
+Notion de pointeur
+Même si la valeur d’un pointeur est toujours un entier (éventuellement un entier long), le type d’un pointeur dépend du type de l’objet vers lequel il pointe. Cette distinction est indispensable à l’interprétation de la valeur d’un pointeur. En effet, pour un pointeur sur un objet de type char, la valeur donne l’adresse de l’octet où cet objet est stocké. Par contre, pour un pointeur sur un objet de type int, la valeur donne l’adresse du premier des 4 octets où l’objet est stocké. 
+Notion de pointeur
+Dans l’exemple suivant, on définit un pointeur p qui pointe vers un entier i :
+
+
+
+
+
+Notion de pointeur
+On se trouve dans une configuration (sur une architecture 32 bits)
+
+
+
+
+L’opérateur unaire d’indirection * permet d’accéder directement à la valeur de l’objet pointé. Ainsi, si p est un pointeur vers un entier i, *p désigne la valeur de i. 
+Notion de pointeur
+Par exemple, le programme
+
+
+
+
+
+Imprime *p = 3 
+Notion de pointeur
+Dans ce programme, les objets i et *p sont identiques : ils ont mêmes adresse et valeur. Nous sommes dans la configuration : 
+
+
+
+
+
+
+Cela signifie en particulier que toute modification de *p modifie i. Ainsi, si l’on ajoute l’instruction *p = 0; à la fin du programme précédent, la valeur de i devient nulle.
+Notion de pointeur
+On peut donc dans un programme manipuler à la fois les objets p et *p. Ces deux manipulations sont très différentes. Comparons par exemple les deux programmes suivants :
+
+
+                                                               et
+Notion de pointeur
+Avant la dernière affectation de chacun de ces programmes, on est dans une configuration du type :
+Notion de pointeur
+Après l’exécution de *p1 = *p2; on a
+Notion de pointeur
+Par contre après p1 = p2; on a
+Arithmétique des pointeurs
+La valeur d’un pointeur étant un entier, on peut lui appliquer un certain nombre d’opérateurs arithmétiques classiques. Les seules opérations arithmétiques valides sur les pointeurs sont :
+l’addition d’un entier à un pointeur. Le résultat est un pointeur de même type que le pointeur de départ ;
+la soustraction d’un entier à un pointeur. Le résultat est un pointeur de même type que le pointeur de départ ;
+la différence de deux pointeurs pointant tous deux vers des objets de même type. Le résultat est un entier.
+Notons que la somme de deux pointeurs n’est pas autorisée.
+Arithmétique des pointeurs
+Si i est un entier et p est un pointeur sur un objet de type type, l’expression p + i désigne un pointeur sur un objet de type type dont la valeur est égale à la valeur de p incrémentée de i * sizeof(type). Il en va de même pour la soustraction d’un entier à un pointeur, et pour les opérateurs d’incrémentation et de décrémentation ++ et --.
+Par exemple, le programme suivant affiche  p2 = p1 + 4 (longueur d’un entier sur x86)			p1 = 0x<adresse i>  p2 =0x<adresse i>+4
+
+Arithmétique des pointeurs
+Par contre, le même programme avec des pointeurs sur des objets de types double affiche  p2 = p1 + 8 (longueur d’un double sur x86)			p1 = 0x<adresse i>  p2 =0x<adresse i>+8
+
+Arithmétique des pointeurs
+Les opérateurs de comparaison sont également applicables aux pointeurs, à condition de comparer des pointeurs qui pointent vers des objets de même type.
+L’utilisation des opérations arithmétiques sur les pointeurs est particulièrement utile pour parcourir des tableaux. 
+Arithmétique des pointeurs
+Ainsi, le programme suivant imprime les éléments du tableau tab dans l’ordre croissant puis décroissant des indices.
+Arithmétique des pointeurs
+Si p et q sont deux pointeurs sur des objets de type type
+l’expression p - q désigne un entier dont la valeur est égale à 
+(p - q)/sizeof(type)
+C’est-à-dire: le nombre d’éléments
+Allocations dynamique
+Avant de manipuler un pointeur, et notamment de lui appliquer l’opérateur d’indirection *, il faut l’initialiser. Sinon, par défaut, la valeur du pointeur est égale à une constante symbolique notée NULL définie dans stdio.h. En général, cette constante vaut 0. Le test p == NULL permet de savoir si le pointeur p pointe vers un objet.
+On peut initialiser un pointeur p par une affectation sur p. Par exemple, on peut affecter à p l’adresse d’une autre variable. Il est également possible d’affecter directement une valeur à *p. Mais pour cela, il faut d’abord réserver à *p un espace-mémoire de taille adéquate.
+Allocations dynamique
+L’adresse de cet espace-mémoire sera la valeur de p. Cette opération consistant à réserver un espace-mémoire pour stocker l’objet pointé s’appelle allocation dynamique. Elle se fait en C par la fonction malloc de la librairie standard stdlib.h. 
+Sa syntaxe est
+malloc(nombre-octets)
+Cette fonction retourne un pointeur de type char * pointant vers un objet de taille nombre-octets octets. Pour initialiser des pointeurs vers des objets qui ne sont pas de type char, il faut convertir le type de la sortie de la fonction malloc à l’aide d’un cast. L’argument nombre-octets est souvent donné à l’aide de la fonction sizeof() qui renvoie le nombre d’octets utilisés pour stocker un objet.
+Allocations dynamique
+Ainsi, pour initialiser un pointeur vers un entier, on écrit :
+
+
+
+
+On aurait pu écrire également	p = (int*)malloc(4);
+Puisqu’un objet de type int est stocké sur 4 octets. Mais on préfèrera la première écriture qui a l’avantage d’être portable.
+Allocations dynamique
+Le programme suivant définit un pointeur p sur un objet *p de type int, et affecte à *p la valeur de la variable i. Il imprime à l’écran :
+Allocations dynamique
+Avant l’allocation dynamique, on se trouve dans la configuration
+
+
+
+
+A ce stade, *p n’a aucun sens. En particulier, toute manipulation de la variable *p génèrerait une violation mémoire, détectable à l’exécution par la levée de l’exception « Segmentation fault ».
+Allocations dynamique
+L’allocation dynamique a pour résultat d’attribuer une valeur à p et de réserver à cette adresse un espace-mémoire composé de 4 octets pour stocker la valeur de *p. On a alors
+
+
+
+
+
+
+A ce stade, *p n’a aucun sens. En particulier, toute manipulation de la variable *p génèrerait une violation mémoire, détectable à l’exécution par la levée de l’exception « Segmentation fault ».
+Allocations dynamique
+*p est maintenant définie mais sa valeur n’est pas initialisée. Cela signifie que *p peut valoir n’importe quel entier (celui qui se trouvait précédemment à cette adresse). L’affectation *p = i; a enfin pour résultat d’affecter à *p la valeur de i. A la fin du programme, on a donc
+
+
+
+
+
+
+
+Pointeurs et tableaux
+Pointeurs et tableaux à 1 dimension
+Pointeurs et tableaux à N dimensions
+Pointeurs et chaînes de caractères
+Pointeurs et structures
+Pointeurs sur une structure
+Structure auto référencées
+Fonctions: définition
+Fonctions: appel
+Fonctions: déclaration
+Durée de vie des variables
+Variables locales
+Variables globales
+Transmission des paramètres d’une fonction
+Qualificateurs de stockage (const, volatile)
+La fonction main
+Pointeur sur une fonction
+Fonction avec un nombre de paramètres variable
+Préprocesseur
+Préprocesseur: #include
+Préprocesseur: #define
+Définition de constantes symboliques
+Définition de macro
+Compilation conditionnelle
+Compilation conditionnelle: fonction d’une expression
+Compilation conditionnelle: fonction de l’existence d’un symbole
+Gestion de fichiers
+Gestion de fichiers: ouverture et fermeture
+ouverture et fermeture: fopen
+ouverture et fermeture: fclose
+Entrées-sorties formatées
+Entrées-sorties formatées: fprintf
+Entrées-sorties formatées: fscanf
+Impression/lecture de caractères
+relecture d’un caractère
+Entrée sorties binaires
+Positionnement dans un fichier
+Programmation modulaire
+Programmation modulaire: principes
+Programmation modulaire: compilation séparée
+Fichier en-tête d’un fichier source
+Variables partagées
+Construire un projet: make
+Make: principes
+Création du Makefile
+Macro et abréviations
+Règles générales de compilation
+Librarie standard
+Entrées-sorties: <stdio.h>
+Manipuler des fichiers
+Entrées et sorties formatées
+Impression et lecture de caractères
+Manipulation de caractères <ctype.h>
+Manipulation de chaînes de caractères <string.h>
+Fonctions mathématiques <math.h>
+Utilitaires standards divers <stdlib.h>
+<stdlib.h>: Allocation dynamique
+<stdlib.h>: Conversion de chaînes en nombres
+<stdlib.h>: Génération de nombres pseudo-aléatoires
+<stdlib.h>: arithmétique sur les entiers
+<stdlib.h>: recherche et tri
+<stdlib.h>: environnement du programme
+Date et heures: <time.h>
+Débogueur GDB
+Démarrer gdb
+Quitter gdb
+Exécuter un programme sous gdb
+Terminaison anormale du programme
+Afficher les données
+Appeler des fonctions
+Modifier des variables
+Se déplacer dans la pile d’appels
+Poser des points d’arrêt
+Gérer les points d’arrêt
+Les points d’arrêt conditionnels
+Exécuter un programme pas à pas
+Afficher la valeur d’une expression à chaque point d’arrêt
+Exécuter automatiquement des commandes aux points d’arrêt
+Les raccourcis des noms de commande
+Utiliser l’historique des commandes
+Interface avec le shell
+Résumé des principales commandes
