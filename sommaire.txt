@@ -1,5 +1,6 @@
-439 slides
+ a peu prêt 439 slides
 
+Sommaire
 Les bases de la programmation en C
 	historique……………………………………………………………………………..	11
 	compilation…………………………………………………………………………..	12
@@ -158,4 +159,5 @@ Sommaire
 	les raccourcis des noms de commande	 ???
 	utiliser l’historique des commandes	 ???
 	interface avec le shell	 ???
-	résumé des principales commandes	 439
+	résumé des principales commandes	 300
+
