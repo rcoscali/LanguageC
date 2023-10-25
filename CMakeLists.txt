@@ -8,7 +8,9 @@ project(LanguageC
 )
 
 # Add executables of projects
+add_executable(add add.c)
 add_executable(break break.c)
+add_executable(bsearch bsearch.c)
 add_executable(comaop comaop.c)
 add_executable(comatest comatest.c)
 #add_executable(constchars constchars.c)
@@ -67,6 +69,8 @@ add_executable(tab5 tab5.c)
 add_executable(tab6 tab6.c)
 add_executable(tabptr tabptr.c)
 add_executable(testcast testcast.c)
+add_executable(triqsort triqsort.c)
+add_executable(triqsort2 triqsort2.c)
 add_executable(typecast typecast.c)
 add_executable(union union.c)
 add_executable(varadrval varadrval.c)
