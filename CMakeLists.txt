@@ -11,7 +11,7 @@ project(LanguageC
 add_executable(break break.c)
 add_executable(comaop comaop.c)
 add_executable(comatest comatest.c)
-add_executable(constchars constchars.c)
+#add_executable(constchars constchars.c)
 add_executable(continue continue.c)
 add_executable(dowhile dowhile.c)
 set_target_properties(dowhile
@@ -35,6 +35,7 @@ add_executable(listechainee listechainee.c)
 add_executable(memalloca memalloca.c)
 add_executable(multitab multitab.c)
 add_executable(power power.c)
+add_executable(produit produit.c)
 add_executable(ptr1 ptr1.c)
 add_executable(ptr2 ptr2.c)
 add_executable(ptr3 ptr3.c)
@@ -49,6 +50,7 @@ set_target_properties(sizes_32
              LINK_FLAGS "-m32"
 )
 add_executable(sizes_64 sizes.c)
+add_executable(sommeproduit sommeproduit.c)
 add_executable(stringconcat stringconcat.c)
 add_executable(stringconcat2 stringconcat2.c)
 set_target_properties(stringconcat2
