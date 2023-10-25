@@ -1,0 +1,161 @@
+439 slides
+
+Les bases de la programmation en C
+	historique……………………………………………………………………………..	11
+	compilation…………………………………………………………………………..	12
+LES ELEMENTS DU LANGAGE C
+	éléments du langage C…………….……………………………………………	28
+	identificateurs………………………………………………………………………	30
+	mots clefs……………………………………………………………………………	33
+	commentaires………………………………………………………………………	35
+STRUCTURE D’UN PROGRAMME C
+	structure d’un programme C……………………………………………………	36
+LES TYPES PREDEFINIS
+	les types prédéfinis…………………………………………………………………	43
+	le type caractère……………………..……………………………………………	46
+	les types entiers………………………..……………………………………………	50
+	les types flottants……………………...……………………………………………	56
+LES CONSTANTES
+	les constantes………………………….…………………………………………...	58
+	les constantes entières……………….…………………………………………..	59
+	les constantes réelles……………………………………………………………..	62
+	les constantes caractères…………..……………………………………………	64
+	constantes chaînes de caractères..……………………………………………	66
+	
+Sommaire
+Les OPERATEURS
+	les opérateurs..…………………………….......................................................	67
+	l’affectation………………………………….....................................................	68
+	les opérateurs arithmétiques……….............................................................	70
+	les opérateurs relationnels…………………...................................................	73
+	les opérateurs logiques booléens…………..................................................	75
+	Les opérateurs logiques bit à bit…………....................................................	77
+	opérateurs d’affectation composée……...................................................	80
+	les opérateurs d’incrémentation et
+	de décrémentation.....……………….............................................................	81
+	l’opérateur virgule…………………………......................................................	82
+	L’opérateur conditionnel ternaire……….....................................................	84
+	L’opérateur de conversion de type…….....................................................	85
+	L’opérateur adresse………………………......................................................	86
+	Règles de priorité des opérateurs……….....................................................	87
+Sommaire
+Les INSTRUCTIONS DE BRANCHEMENTS CONDITIONNELS
+	les instructions de branchements 
+	conditionnels..…………………………….......…………………………….........	91
+	branchement conditionnel: if/else.…….....……………………………........	92
+	branchement multiple : switch………….....…………………………….........	94
+LES BOUCLES
+	les boucles………...........................................……………………………........	96
+	boucle while …………………………………...……………………………........	97
+	boucle do / while ……………………………..……………………………........	98
+	boucle for ……………………………………...……………………………..........	95
+LES INSTRUCTIONS DE BRANCHEMENTS NON CONDITIONNEL
+	branchements non conditionnel………………..……………………………...	102
+	branchements non conditionnel break……...……………………………….	103
+	branchements non conditionnel continue…..……………………………..	104
+	branchements non conditionnel goto………..……………………………..	105
+LES FONCTIONS D’ENTREES-SORTIES CLASSIQUES
+	les fonctions d’entrées-sorties classiques…....………………………………	107	
+	la fonction d’écriture printf ………………….....……………………………..	108
+	la fonction de saisie scanf ……….....................…………………………….. 	112
+	Impression et lecture de caractères ………....………………………………	115
+Sommaire
+	convention d’écriture d’un programme C..............................................	119
+LES TYPES COMPOSES
+	types composés………….…….....................................................................	120
+	les tableaux………………………….…………................................................	122
+	les structures……….......................................................................................	129
+	les champs de bits ………………………………............................................	134
+	les unions ………………………………………….............................................	137
+	les énumérations…………………………………............................................	141
+	définition de type avec typedef……………..............................................	143
+LES POINTEURS
+	les pointeurs……………………………………….............................................	145
+	adresse et valeur d’un objet ………………….............................................	146
+	notion de pointeur ………………………………...........................................	151
+	arythmétique des pointeurs …………………..............................................	161	
+	allocation dynamique ………………….......................................................	167
+	allocation dans la pile………......................................................................	174
+	pointeurs et tableaux …………………………..............................................	179
+	pointeurs et tableaux a 1 dimensions…....................................................	180
+	pointeurs et tableaux a N dimensions…....................................................	187
+	pointeur sur une structure……………………...............................................	198
+	structure auto-référencée……………………..............................................	201
+Sommaire
+	fonctions: définition……………. 	 209	
+	fonctions: appel…………………. 	 213	
+	fonctions: déclaration…………………..	214
+	durée de vie des variables …………………..	218
+	variables globales …………………..	223
+	variables locales …………………..	225
+	transmission des paramètres d’une fonction …………………..	233
+	qualificateurs de stockage (const, volatile) …………………..	234
+	la fonction main …………………..	235
+	pointeur sur une fonction …………………..	236
+	fonction avec un nombre de paramètres variable …………………..	237
+	préprocesseur …………………..	238
+	préprocesseur: #include …………………..	238
+	préprocesseur: #define …………………..	240
+	définition de constantes symboliques …………………..	 241
+	définition de macro …………………..	 242
+	compilation conditionnelle …………………..	 243
+	compilation conditionnelle: fonction d’une expression ……………… 	244
+	compilation conditionnelle: fonction de l’existence d’un symbole … 	245
+Sommaire
+	gestion de fichiers: ouverture et fermeture	 246	
+	ouverture et fermeture: fopen	 ???	
+	ouverture et fermeture: fclose	 ???	
+	entrées-sorties formatées	 ???	
+	entrées-sorties formatées: fprintf	 250	
+	entrées-sorties formatées: fscanf	 ???	
+	impression/lecture de caractères	 ???	
+	relecture d’un caractère	 ???	
+	entrée sorties binaires	 ???	
+	positionnement dans un fichier	 ???	
+	programmation modulaire	 ???	
+	programmation modulaire: principes	 ???	
+	programmation modulaire: compilation séparée	 ???	
+	fichier en-tête d’un fichier source	 ???	
+	variables partagées	 260	
+	construire un projet: make	 ???	
+	make: principes	 ???	
+	création du makefile	 ???	
+	macro et abréviations	 ???	
+	règles générales de compilation	 265	
+Sommaire
+	librarie standard………………….	266	
+	entrées-sorties: <stdio.h>	???
+	manipuler des fichiers	???
+	entrées et sorties formatées	???
+	impression et lecture de caractères	270
+	manipulation de caractères <ctype.h>	???
+	manipulation de chaînes de caractères <string.h>	???
+	fonctions mathématiques <math.h>	???
+	utilitaires standards divers <stdlib.h>	???
+	<stdlib.h>: allocation dynamique	???
+	<stdlib.h>: conversion de chaînes en nombres	???
+	<stdlib.h>: génération de nombres pseudo-aléatoires	???
+	<stdlib.h>: arithmétique sur les entiers	???
+	<stdlib.h>: recherche et tri	 ???
+	<stdlib.h>: environnement du programme	 280
+	date et heures: <time.h>	 ???
+	débogueur gdb	 ???
+	démarrer gdb	 ???
+	quitter gdb	 284
+Sommaire
+	exécuter un programme sous gdb	 285
+	terminaison anormale du programme	 286
+	afficher les données	 287
+	appeler des fonctions	 288
+	modifier des variables	 ???
+	se déplacer dans la pile d’appels	 290
+	poser des points d’arrêt	 ???
+	gérer les points d’arrêt	 ???
+	les points d’arrêt conditionnels	 ???
+	exécuter un programme pas à pas	 ???
+	afficher la valeur d’une expression à chaque point d’arrêt	 ???
+	exécuter automatiquement des commandes aux points d’arrêt	 ???
+	les raccourcis des noms de commande	 ???
+	utiliser l’historique des commandes	 ???
+	interface avec le shell	 ???
+	résumé des principales commandes	 439
