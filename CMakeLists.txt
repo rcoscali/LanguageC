@@ -28,6 +28,7 @@ add_executable(fact fact.c)
 add_executable(for for.c)
 add_executable(iochar2 iochar2.c)
 add_executable(iochar iochar.c)
+add_executable(iofichier iofichier.c)
 add_executable(ioprintf ioprintf.c)
 add_executable(ioscanf ioscanf.c)
 set_target_properties(ioscanf
