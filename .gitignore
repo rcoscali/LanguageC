@@ -8,3 +8,5 @@ sizes_32
 sizes_64
 
 *.c~
+
+*.h~
