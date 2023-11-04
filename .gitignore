@@ -8,3 +8,7 @@ sizes_32
 sizes_64
 
 *.c~
+
+*.o
+
+produit/produit
