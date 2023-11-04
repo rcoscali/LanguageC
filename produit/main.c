@@ -11,9 +11,9 @@ int main(void)
 {
   int a, b, c;
   printf("1ère opérande ? ");
-  scanf("%d",&a);
+  (void)scanf("%d",&a);
   printf("2ème opérande ? ");
-  scanf("%d",&b);
+  (void)scanf("%d",&b);
   c = produit(a,b);
   printf("le produit vaut %d\n",c);
   return EXIT_SUCCESS;
