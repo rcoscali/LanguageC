@@ -1,0 +1,24 @@
+##
+## Makefile for produit
+##
+
+CC= gcc
+CFLAGS= -O2 –Wall -Wno-unused-result –pedantic
+DEBUGFLAGS= -O0 -g
+
+.PHONY: all clean
+
+%.o: %.c
+	$(CC) $(CFLAGS) –c –o $@ $<
+
+%.do: %.c
+	$(CC) $(DEBUGFLAGS) $(CFLAGS) –c –o $@ $<
+
+all: produit
+
+produit.o: produit.c produit.h
+main.o: main.c produit.h
+produit: produit.o main.o
+
+clean:
+	rm -f *.o *~ produit
