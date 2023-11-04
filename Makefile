@@ -58,11 +58,15 @@ EXES = 	break \
 		union \
 		while
 
-.PHONY: all clean
+.PHONY: all clean produit
 
-all: debug $(EXES) $(EXES:%=debug/%)
+all: debug produit $(EXES) $(EXES:%=debug/%)
+
+produit:
+	make -C $@
 
 clean:
+	make -C produit $@
 	rm -rf debug $(EXES)
 
 debug:
