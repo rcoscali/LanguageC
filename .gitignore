@@ -9,6 +9,8 @@ sizes_64
 
 *.c~
 
+*.h~
+
 *.o
 
 produit/produit
