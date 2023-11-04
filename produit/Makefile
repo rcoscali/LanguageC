@@ -7,7 +7,7 @@
 all: produit
 
 produit: produit.o main.o
-	gcc -O2 -o $@ $?
+	gcc -O2 -o $@ $^
 
 produit.o: produit.c produit.h
 	gcc -O2 -Wall -pedantic -c -o $@ $<
