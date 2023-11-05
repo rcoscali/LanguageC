@@ -6,7 +6,8 @@ DIRS = \
 	Ex-5 \
 	Ex-6 \
 	Ex-7 \
-	Ex-8
+	Ex-8 \
+	Ex-9
 
 all:
 	for d in $(DIRS); do \
