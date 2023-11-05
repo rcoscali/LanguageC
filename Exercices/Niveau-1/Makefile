@@ -11,3 +11,6 @@ all:
 	for d in $(DIRS); do \
 	  make -C $$d; \
 	done
+
+clean:
+	rm -f */*~ */ex-?
