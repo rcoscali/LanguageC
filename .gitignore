@@ -7,6 +7,12 @@ sizes_32
 
 sizes_64
 
+*.md~
+
+*.txt~
+
+**/Makefile~
+
 *.c~
 
 *.h~
@@ -75,10 +81,6 @@ union
 
 while
 
-*.md~
-
-Exercices/Niveau-1/Ex-5/Makefile~
-
 Exercices/Niveau-1/Ex-1/ex-1
 
 Exercices/Niveau-1/Ex-2/ex-2
@@ -93,12 +95,8 @@ Exercices/Niveau-1/Ex-6/ex-6
 
 Exercices/Niveau-1/Ex-7/ex-7
 
-Exercices/Niveau-1/Ex-7/Makefile~
-
-Exercices/Niveau-1/Ex-8/Makefile~
-
-Exercices/Niveau-1/Makefile~
-
 Exercices/Niveau-1/Ex-8/ex-8
 
-Exercices/Niveau-1/Ex-9/Makefile~
+Exercices/Niveau-1/Ex-9/ex-9
+
+Exercices/Niveau-1/Ex-10/ex-10
