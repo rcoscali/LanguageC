@@ -18,6 +18,7 @@ SRCS = 	break.c \
 		ptrarithmdbl.c \
 		ptrarithmtab.c \
 		relationalop.c \
+	    sommeproduit.c \
 		struct.c \
 		tab2.c \
 		tab3.c \
@@ -26,7 +27,7 @@ SRCS = 	break.c \
 		testcast.c \
 		typecast.c \
 		union.c \
-		while.c
+		while.c \
 
 EXES = 	break \
 		comaop \
@@ -48,6 +49,7 @@ EXES = 	break \
 		ptrarithmdbl \
 		ptrarithmtab \
 		relationalop \
+	    sommeproduit \
 		struct \
 		tab2 \
 		tab3 \
@@ -56,17 +58,23 @@ EXES = 	break \
 		testcast \
 		typecast \
 		union \
-		while
+		while \
+
+DIRS = \
+	produit \
+	Exercices \
 
 .PHONY: all clean produit
 
-all: debug produit $(EXES) $(EXES:%=debug/%)
+all: debug $(DIRS) $(EXES) $(EXES:%=debug/%)
 
-produit:
+produit Exercices:
 	make -C $@
 
 clean:
-	make -C produit $@
+	for d in $(DIRS); do \
+	  make -C $$d $@; \
+	done
 	rm -rf debug $(EXES)
 
 debug:
@@ -98,6 +106,7 @@ ptrarithm debug/ptrarithm: ptrarithm.c
 ptrarithmdbl debug/ptrarithmdbl: ptrarithmdbl.c
 ptrarithmtab debug/ptrarithmtab: ptrarithmtab.c
 relationalop debug/relationalop: relationalop.c
+sommeproduit debug/sommeproduit: sommeproduit.c
 tab2 debug/tab2: tab2.c
 tab3 debug/tab3: tab3.c
 tab4 debug/tab4: tab4.c

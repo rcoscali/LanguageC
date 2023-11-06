@@ -5,7 +5,7 @@
 1699230986 source:/home/rcoscali/Sources/LangageC/break.c
 	<stdio.h>
 
-1699230263 source:/home/rcoscali/Sources/LangageC/bsearch.c
+1699234134 source:/home/rcoscali/Sources/LangageC/bsearch.c
 	<stdlib.h>
 	<stdio.h>
 	<string.h>
@@ -13,19 +13,19 @@
 
 1699227156 source:/home/rcoscali/Sources/LangageC/build/CMakeFiles/3.22.1/CompilerIdC/CMakeCCompilerId.c
 
-1699102879 source:/home/rcoscali/Sources/LangageC/comaop.c
+1699235481 source:/home/rcoscali/Sources/LangageC/comaop.c
 	<stdio.h>
 
-1699102879 source:/home/rcoscali/Sources/LangageC/comatest.c
+1699235461 source:/home/rcoscali/Sources/LangageC/comatest.c
 	<stdio.h>
 
-1699102879 source:/home/rcoscali/Sources/LangageC/continue.c
+1699235445 source:/home/rcoscali/Sources/LangageC/continue.c
 	<stdio.h>
 
-1699230578 source:/home/rcoscali/Sources/LangageC/dowhile.c
+1699235433 source:/home/rcoscali/Sources/LangageC/dowhile.c
 	<stdio.h>
 
-1699230626 source:/home/rcoscali/Sources/LangageC/dynalloc.c
+1699234264 source:/home/rcoscali/Sources/LangageC/dynalloc.c
 	<stdio.h>
 	<stdlib.h>
 
@@ -39,4 +39,22 @@
 	<stdlib.h>
 	<stdio.h>
 	<stdarg.h>
+
+1699235419 source:/home/rcoscali/Sources/LangageC/echange.c
+	<stdio.h>
+
+1699235406 source:/home/rcoscali/Sources/LangageC/echangeadr.c
+	<stdio.h>
+
+1699230742 source:/home/rcoscali/Sources/LangageC/enum-2.c
+	<stdio.h>
+
+1699230763 source:/home/rcoscali/Sources/LangageC/enum.c
+	<stdio.h>
+
+1699229753 source:/home/rcoscali/Sources/LangageC/Exercices/Niveau-1/Ex-1/ex-1.c
+	<stdio.h>
+
+1699229784 source:/home/rcoscali/Sources/LangageC/Exercices/Niveau-1/Ex-10/ex-10.c
+	<stdio.h>
 
