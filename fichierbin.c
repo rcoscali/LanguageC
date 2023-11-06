@@ -4,7 +4,10 @@
 #define NB 50
 #define F_SORTIE "sortie"
 
-int main(void)
+int main(void);
+
+int
+main(void)
 {
   FILE *f_in, *f_out;
   int *tab1, *tab2;

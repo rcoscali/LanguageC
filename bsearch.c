@@ -6,12 +6,13 @@
 #define NB_ELEMENTS 4
 
 int comp_str_maj(char **, char **);
+int main(int argc, char *argv[]);
 
 int comp_str_maj(char **s1, char **s2)
 {
   int i;
   char *chaine1, *chaine2;
-  
+
   chaine1 = (char*)malloc(strlen(*s1) * sizeof(char));
   chaine2 = (char*)malloc(strlen(*s2) * sizeof(char));
 
@@ -20,7 +21,7 @@ int comp_str_maj(char **s1, char **s2)
 
   for (i = 0; i < strlen(*s2); i++)
     chaine2[i] = tolower((*s2)[i]);
-  
+
   return(strcmp(chaine1, chaine2));
 }
 

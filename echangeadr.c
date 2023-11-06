@@ -1,6 +1,10 @@
 #include <stdio.h>
 
-void echange (int *adr_a, int *adr_b)
+void echange(int *, int *);
+int main(void);
+
+void
+echange(int *adr_a, int *adr_b)
 {
 	int t;
 	t = *adr_a;
@@ -8,7 +12,9 @@ void echange (int *adr_a, int *adr_b)
 	*adr_b = t;
 	return;
 }
-int main()
+
+int
+main(void)
 {
 	int a = 2, b = 5;
 	printf("debut programme principal :\n a = %d \t b = %d\n", a, b);

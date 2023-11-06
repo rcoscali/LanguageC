@@ -1,29 +1,34 @@
 #include <stdio.h>
 
-void func(void)
+void func(void);
+void func2(void);
+int main(void);
+
+void
+func(void)
 {
-  double d;
   int a;
   float b;
   char c;
 
-  printf("adresse de a = %p\n", &a);
-  printf("adresse de b = %p\n", &b);
-  printf("adresse de c = %p\n", &c);
+  printf("adresse de a = %p\n", (void*)&a);
+  printf("adresse de b = %p\n", (void*)&b);
+  printf("adresse de c = %p\n", (void*)&c);
   printf("avant:\n");
   printf("a = %d\n", a);
-  printf("b = %f\n", b);
+  printf("b = %f\n", (double)b);
   printf("c = %c\n", c);
   a = 2;
-  b = 1.234567;
+  b = (float)1.234567;
   c = 'F';
   printf("après:\n");
   printf("a = %d\n", a);
-  printf("b = %f\n", b);
+  printf("b = %f\n", (double)b);
   printf("c = %c\n", c);
 }
 
-void func2()
+void
+func2(void)
 {
   unsigned char tab[150];
   int i;
@@ -34,7 +39,8 @@ void func2()
     }
 }
 
-int main()
+int
+main(void)
 {
   func();
   func2();

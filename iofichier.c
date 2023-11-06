@@ -4,7 +4,10 @@
 #define ENTREE "../entree.txt"
 #define SORTIE "sortie.txt"
 
-int main(void)
+int main(void);
+
+int
+main(void)
 {
   FILE *f_in, *f_out;
   int c;
@@ -18,13 +21,13 @@ int main(void)
   if ((f_out = fopen(SORTIE, "w")) == NULL)
     {
       fprintf(stderr,
-              "Erreur: Impossible d’ecrire dans le fichier %s\n", 
+              "Erreur: Impossible d’ecrire dans le fichier %s\n",
               SORTIE);
       return(EXIT_FAILURE);
     }
   while ((c = fgetc(f_in)) != EOF)
     fputc(c, f_out);
-  
+
   fclose(f_in);
   fclose(f_out);
 

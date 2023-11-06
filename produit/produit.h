@@ -3,6 +3,8 @@
  * Entete de produit de 2 entiers
  */
 
+#pragma once
+
 #ifndef _PRODUIT_H_
 #define _PRODUIT_H_
 

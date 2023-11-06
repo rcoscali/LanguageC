@@ -1,0 +1,42 @@
+# depslib dependency file v1.0
+1699229723 source:/home/rcoscali/Sources/LangageC/Exercices/Niveau-1/Ex-5/ex-5.c
+	<stdio.h>
+
+1699102879 source:/home/rcoscali/Sources/LangageC/break.c
+	<stdio.h>
+
+1699230263 source:/home/rcoscali/Sources/LangageC/bsearch.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+
+1699227156 source:/home/rcoscali/Sources/LangageC/build/CMakeFiles/3.22.1/CompilerIdC/CMakeCCompilerId.c
+
+1699102879 source:/home/rcoscali/Sources/LangageC/comaop.c
+	<stdio.h>
+
+1699102879 source:/home/rcoscali/Sources/LangageC/comatest.c
+	<stdio.h>
+
+1699102879 source:/home/rcoscali/Sources/LangageC/continue.c
+	<stdio.h>
+
+1699230578 source:/home/rcoscali/Sources/LangageC/dowhile.c
+	<stdio.h>
+
+1699230626 source:/home/rcoscali/Sources/LangageC/dynalloc.c
+	<stdio.h>
+	<stdlib.h>
+
+1699230158 source:/home/rcoscali/Sources/LangageC/vartemp.c
+	<stdio.h>
+
+1699229959 source:/home/rcoscali/Sources/LangageC/while.c
+	<stdio.h>
+
+1699230223 source:/home/rcoscali/Sources/LangageC/add.c
+	<stdlib.h>
+	<stdio.h>
+	<stdarg.h>
+

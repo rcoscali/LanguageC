@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
+int main(void);
+
+int main(void)
 {
 	int i = 3, *p;
 	printf("valeur de p avant initialisation = %p\n", p);

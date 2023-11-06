@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="LangageC" />
+		<Option pch_mode="2" />
+		<Option compiler="clang" />
+		<Option extended_obj_names="1" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/LangageC" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option additional_output="Exercices/Niveau-1/Ex-1/ex-1;Exercices/Niveau-1/Ex-2/ex-2;" />
+				<Option type="1" />
+				<Option compiler="clang" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/LangageC" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="clang" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Weverything" />
+			<Add option="-std=c90" />
+		</Compiler>
+		<Unit filename="Exercices/Niveau-1/Ex-1/ex-1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Exercices/Niveau-1/Ex-10/ex-10.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Exercices/Niveau-1/Ex-2/ex-2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Exercices/Niveau-1/Ex-3/ex-3.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Exercices/Niveau-1/Ex-4/ex-4.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Exercices/Niveau-1/Ex-5/ex-5.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Exercices/Niveau-1/Ex-6/ex-6.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Exercices/Niveau-1/Ex-7/ex-7.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Exercices/Niveau-1/Ex-8/ex-8.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Exercices/Niveau-1/Ex-9/ex-9.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="add.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="break.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="bsearch.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="build/CMakeFiles/3.22.1/CompilerIdC/CMakeCCompilerId.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="comaop.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="comatest.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="constchars.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="continue.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="dowhile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="dynalloc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="echange.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="echangeadr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="enum-2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="enum.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="fact.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="fichierbin.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="for.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="iochar.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="iochar2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="iofichier.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ioprintf.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ioscanf.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="listechainee.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="memalloca.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="multitab.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="myfirstcode.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="power.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="produit.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="produit/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="produit/produit.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="produit/produit.h" />
+		<Unit filename="ptr1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ptr2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ptr3.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ptrarithm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ptrarithmdbl.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ptrarithmtab.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="relationalop.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="seekfile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sizes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sommeproduit.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="stringconcat.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="stringconcat2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="struct.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tab.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tab2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tab3.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tab4.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tab5.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tab6.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tabptr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="testcast.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="triqsort.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="triqsort2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="typecast.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ungetc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="union.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="varadrval.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="varglobal.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="varlocal.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="varptr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="varstatic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="vartemp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="while.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>
