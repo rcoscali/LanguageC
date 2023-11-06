@@ -7,11 +7,11 @@ DIRS = \
 
 all:
 	for d in $(DIRS); do \
-	  make -C $$d all; \
+	  make -C $$d $@; \
 	done
 
 clean:
 	for d in $(DIRS); do \
-	  make -C $$d clean; \
+	  make -C $$d $@; \
 	done
 	rm -f *~
