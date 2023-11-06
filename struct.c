@@ -1,11 +1,16 @@
 #include <stdio.h>
 #include <math.h>
+
+int main(void);
+
 struct complexe
 {
 	double reelle;
 	double imaginaire;
 };
-int main()
+
+int
+main(void)
 {
 	struct complexe z = {3, 4};
 	double norme;

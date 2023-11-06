@@ -3,7 +3,10 @@
 
 #define ENTREE "../entree.txt"
 
-int main(void)
+int main(void);
+
+int
+main(void)
 {
   FILE *f_in;
   int c;

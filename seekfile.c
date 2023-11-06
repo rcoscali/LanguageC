@@ -2,7 +2,11 @@
 #include <stdlib.h>
 #define NB 50
 #define F_SORTIE "sortie"
-int main(void)
+
+int main(void);
+
+int
+main(void)
 {
   FILE *f_in, *f_out;
   int *tab;
@@ -13,8 +17,8 @@ int main(void)
   /* ecriture du tableau dans F_SORTIE */
   if ((f_out = fopen(F_SORTIE, "w")) == NULL)
     {
-      fprintf(stderr, 
-              "Impossible d’ecrire dans le fichier %s\n", 
+      fprintf(stderr,
+              "Impossible d’ecrire dans le fichier %s\n",
               F_SORTIE);
       return(EXIT_FAILURE);
     }
@@ -23,8 +27,8 @@ int main(void)
   /* lecture dans F_SORTIE */
   if ((f_in = fopen(F_SORTIE, "r")) == NULL)
     {
-      fprintf(stderr, 
-              "Impossible de lire dans le fichier %s\n", 
+      fprintf(stderr,
+              "Impossible de lire dans le fichier %s\n",
               F_SORTIE);
       return(EXIT_FAILURE);
     }

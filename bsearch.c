@@ -5,10 +5,11 @@
 
 #define NB_ELEMENTS 4
 
-int comp_str_maj(char **, char **);
-int main(int argc, char *argv[]);
+int comp_str_maj(char**, char**);
+int main(int, char*[]);
 
-int comp_str_maj(char **s1, char **s2)
+int
+comp_str_maj(char** s1, char** s2)
 {
   int i;
   char *chaine1, *chaine2;
@@ -25,7 +26,8 @@ int comp_str_maj(char **s1, char **s2)
   return(strcmp(chaine1, chaine2));
 }
 
-int main(int argc, char *argv[])
+int
+main(int argc, char* argv[])
 {
   char *tab[NB_ELEMENTS] =
     {

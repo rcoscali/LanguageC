@@ -1,6 +1,9 @@
 #include <stdio.h>
 
-int main()
+int main(void);
+
+int
+main(void)
 {
 	int i;
 	printf("entrez un entier sous forme hexadecimale i = ");

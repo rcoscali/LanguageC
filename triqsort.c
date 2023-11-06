@@ -4,12 +4,14 @@
 
 #define NB_ELEMENTS 10
 
+int main(void);
 void imprime_tab1(int*, int);
 void imprime_tab2(char**, int);
 int comp_int(const void*, const void*);
 int comp_str(const void*, const void*);
 
-void imprime_tab1(int* tab, int nb)
+void
+imprime_tab1(int* tab, int nb)
 {
   int i;
   printf("\n");
@@ -19,7 +21,8 @@ void imprime_tab1(int* tab, int nb)
   return;
 }
 
-void imprime_tab2(char** tab, int nb)
+void
+imprime_tab2(char** tab, int nb)
 {
   int i;
   printf("\n");
@@ -29,15 +32,20 @@ void imprime_tab2(char** tab, int nb)
   return;
 }
 
-int comp_int(const void* a, const void* b)
+int
+comp_int(const void* a, const void* b)
 {
   return(*(int*)a - *(int*)b);
 }
-int comp_str(const void* s1, const void* s2)
+
+int
+comp_str(const void* s1, const void* s2)
 {
   return(strcmp(*(const char**)s1,*(const char**)s2));
 }
-int main()
+
+int
+main(void)
 {
   int *tab1;
   char *tab2[NB_ELEMENTS] =

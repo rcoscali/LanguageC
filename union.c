@@ -1,16 +1,21 @@
 #include <stdio.h>
 
+int main(void);
+
 struct coordonnees
 {
 	unsigned int x;
 	unsigned int y;
 };
+
 union point
 {
 	struct coordonnees coord;
 	unsigned long mot;
 };
-int main()
+
+int
+main(void)
 {
 	union point p1, p2, p3;
 	p1.coord.x = 0xf;

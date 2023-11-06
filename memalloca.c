@@ -2,7 +2,10 @@
 #include <alloca.h>
 #define N 10
 
-int main()
+int main(void);
+
+int
+main(void)
 {
   int i = 3;
   int* a = alloca(N);
