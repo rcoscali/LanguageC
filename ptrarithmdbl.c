@@ -1,6 +1,9 @@
 #include <stdio.h>
 
-int main()
+int main(void);
+
+int
+main(void)
 {
 	double i = 3;
 	double *p1, *p2;

@@ -2,7 +2,10 @@
 
 #define N 10
 
-int main()
+int main(void);
+
+int
+main(void)
 {
 	int tab[N];
 	int i;

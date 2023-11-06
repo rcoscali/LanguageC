@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void init (int *tab, int n)
+int main(void);
+
+void
+init(int *tab, int n)
 {
 	int i;
 	for (i = 0; i < n; i++)
@@ -9,7 +12,8 @@ void init (int *tab, int n)
 	return;
 }
 
-int main()
+int
+main(void)
 {
 	int i, n = 5;
 	int *tab;

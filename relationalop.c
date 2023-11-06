@@ -1,6 +1,9 @@
 #include <stdio.h>
 
-int main()
+int main(void);
+
+int
+main(void)
 {
 	int a = 0;
 	int b = 1;

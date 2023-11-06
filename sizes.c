@@ -1,6 +1,9 @@
 #include <stdio.h>
 
-int main()
+int main(void);
+
+int
+main(void)
 {
   char v1;
   unsigned char v2;

@@ -1,10 +1,10 @@
 #include <stdio.h>
 
-void echange(int *, int *);
+void echange(int*, int*);
 int main(void);
 
 void
-echange(int *adr_a, int *adr_b)
+echange(int* adr_a, int* adr_b)
 {
 	int t;
 	t = *adr_a;

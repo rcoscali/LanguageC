@@ -1,6 +1,9 @@
 #include <stdio.h>
 
-int main()
+int main(void);
+
+int
+main(void)
 {
 	int i = 23674;
 	int j = -23674;

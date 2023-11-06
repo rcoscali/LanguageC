@@ -1,6 +1,9 @@
 #include <stdio.h>
 
-int main() 
+int main(void);
+
+int
+main(void)
 {
 	int i = 3, j = 6;
 	int *p1, *p2;

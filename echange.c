@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main(void);
-void echange(int a, int b);
+void echange(int, int);
 
 void
 echange(int a, int b)

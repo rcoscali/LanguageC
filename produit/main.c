@@ -9,7 +9,8 @@
 
 int main(void);
 
-int main(void)
+int
+main(void)
 {
   int a, b, c;
   printf("1ère opérande ? ");
