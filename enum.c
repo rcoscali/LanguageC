@@ -1,6 +1,9 @@
 #include <stdio.h>
 
-int main()
+int main(void);
+
+int
+main(void)
 {
 	enum booleen {faux, vrai};
 	enum booleen b;

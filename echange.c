@@ -1,6 +1,10 @@
 #include <stdio.h>
 
-void echange (int a, int b)
+int main(void);
+void echange(int a, int b);
+
+void
+echange(int a, int b)
 {
 	int t;
 	printf("debut fonction :\n a = %d \t b = %d\n", a, b);
@@ -11,7 +15,8 @@ void echange (int a, int b)
 	return;
 }
 
-int main()
+int
+main(void)
 {
 	int a = 2, b = 5;
 	printf("debut programme principal :\n a = %d \t b = %d\n", a, b);

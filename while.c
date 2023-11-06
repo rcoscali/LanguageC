@@ -1,7 +1,9 @@
 #include <stdio.h>
 
+int main(void);
+
 int
-main()
+main(void)
 {
 	int i = 1;
 	while (i < 10)

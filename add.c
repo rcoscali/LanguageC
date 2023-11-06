@@ -3,8 +3,10 @@
 #include <stdarg.h>
 
 int add(int,...);
+int main(void);
 
-int add(int nb,...)
+int
+add(int nb,...)
 {
   int res = 0;
   int i;
@@ -16,7 +18,8 @@ int add(int nb,...)
   return(res);
 }
 
-int main(void)
+int
+main(void)
 {
   printf("%d\n", add(4,10,2,8,5));
   printf("%d\n", add(6,10,15,5,2,8,10));

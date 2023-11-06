@@ -7,6 +7,8 @@
 
 #include "produit.h"
 
+int main(void);
+
 int main(void)
 {
   int a, b, c;

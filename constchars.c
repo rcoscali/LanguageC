@@ -1,6 +1,9 @@
 #include <stdio.h>
 
-int main()
+int main(void);
+
+int
+main(void)
 {
   const char * p1 = "Hello";
   const char * const p2 = "World";
@@ -12,6 +15,6 @@ int main()
   p2 = "WORLD";
   *p2 = 'w';
   p3 = "!!";
-  
+
   printf ("%s %s %s\n", p1, p2, p3);
 }
