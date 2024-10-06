@@ -36,7 +36,7 @@ set_target_properties(ioscanf
   PROPERTIES COMPILE_FLAGS "-Wno-unused-result"
   )
 add_executable(listechainee listechainee.c)
-add_executable(memalloca memalloca.c)
+#add_executable(memalloca memalloca.c)
 add_executable(multitab multitab.c)
 add_executable(power power.c)
 add_executable(produit produit.c)
